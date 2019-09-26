@@ -18,9 +18,11 @@ int main() {
     int number;
     std::cin >> number;
 
-    std::cout << "You entered " << number << ". That's my favorite number as well!";
+    std::cout << "You entered " << number << ". That's my favorite number as well!" << std::endl;
 
     return 0;
 }
 
 // Compiling, Linking, and Running C++ programs
+// Compiling = converting the .cpp source file into an object file
+// Linking = the linker combines multiple cpp source files, standard library files, and other .obj files before producing the .exe
