@@ -54,7 +54,7 @@ Run Time Errors: Errors occurs when the program is running. Divide by zero, file
 to hard crash. Exception handling will help deal with runtime errors.
 
 Basic Structure of a C++ program:
-    - C++ has 93 keywords, these keywords are reserved, we cannot use them. ex) int, return, true, class ...
+    - C++ has 93 keywords, these keywords are reserved, we cannot use them like we can as variables. ex) int, return, true, class ...
     - #include, main, std, cout, and cin are NOT reserved keywords
 
     - preprocessor derectives start with a # this sends commands to the preprocessor. Processes these statements before the compiler sees them.
@@ -62,4 +62,43 @@ Basic Structure of a C++ program:
     - preprocessor directive, it will replace that line with the contents of the file that it is refering to (recursively processed). # does not 
     - understand C++ code.
 
+    - << Stream Insertion Operator - Insert whatever is on the right hand side into the stream (generally it will be the standard output / terminal)
+    - >> Extraction Operator - Takes data from the standard stream (generally will be the terminal) and stores the data into whatever is on the right
+        hand side of it (generally stored into variables).
+    - :: Scope Resolution Operator
+
+Preprocessor and the preprocessor derective:  
+    - Starts with the # character. Sends commands to the preprocessor.
+    - The preprocessor strips all comments within the source file, and replaces the comments with a single space.
+    - Comments NEVER make it to the compiler.
+    - Looks for other preprocessor derectives and executes them. 
+    - Generally the #include is the most used preprocessor.
+    - #include replaces the line with the contents of the file that its referring to. It also recursively checks the contents of the files for #include and 
+      processes the contents into those files.
+    - Preprocessor derectives do NOT understand C++ syntax.
+
+main() function 
+    - Every C++ program must contain exactly 1 main() function 
+    - This is the starting point of the program
+    - main() must be lowercase
+    
+
+    int main() {
+        code_block;
+        return 0;
+    }
+        - main() does not except anything from the operating system.
+
+
+
+    int main(int argc, char *argv[]) {
+        code_block;
+        return 0;
+    }
+        - Here main() expects data / information from the operating system.
+        - argc stands for argument count
+        - argv stands for argument vector. Contains string arguments
+
+
+    both are valid main() function structure. 
 */
