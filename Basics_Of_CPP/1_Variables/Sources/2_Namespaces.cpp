@@ -36,5 +36,25 @@ int main() {
     */
     // Using this variation we can use only what we need. 
 
+
+    /* Standard Input Output using cin and cout
+
+        * cout = Standard output, the default is the console / terminal
+        * cin = Standard input, the default is from the keyboard
+
+        * << = insertion operator, output streams
+            - inseration operators do NOT automatically add line breaks, we need to add them in manually 
+            - ex) << endl;  or  << "\n";
+
+        * >> = extraction operator, input streams
+            - cin and >>: this can also be chained like <<. This can potentially fail if the entered data cannot be interpreted
+            - the data could be an undertermined value.
+
+            - data entered from the keyboard will only be processed after enter is pressed.
+            - cin extraction uses whitespaces: spaces, tabs, and newlines are considered termination characters.
+    */
+
+    // Standard coding practices is to #include <iostream> and explicilty use the std:: scope resolution operatror for cout and cin.
+     
     return 0;
 }
