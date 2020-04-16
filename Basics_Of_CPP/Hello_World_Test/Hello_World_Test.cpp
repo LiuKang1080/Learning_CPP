@@ -1,12 +1,16 @@
 // Hello world test in C++
-// comments in C++ are with //
-// Multi-line comments in C++ can be done with /*  */
+
+/*
+    - Comments in C++ are done with double forward slashes //
+    - Multi-line comments in C++ are done with / * * / (no spaces). Cannot be nested. 
+*/
 
 
 #include <iostream>
 
 
 int main() {
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Hello World!" << std::endl;
+    
     return 0;
 }
