@@ -45,6 +45,8 @@
 
 
 #include <iostream>
+// Header file for C style printing and formatting
+// #include <cstdio>
 
 
 int main() {
@@ -78,6 +80,9 @@ int main() {
     std::cout << "Number of large rooms: " << large_rooms << "\n";
     std::cout << "Price per small room: " << price_per_small_room << "\n";
     std::cout << "Price per large room: " << price_per_large_room << "\n";
+    
+    // We can use C style printing and formatting in C++. We need to include the <cstdio> header file.
+    // printf("Price per large room is: %0.2f \n", price_per_large_room);
 
     double total_room_cost = (price_per_small_room * small_rooms) + (price_per_large_room * large_rooms);
 
