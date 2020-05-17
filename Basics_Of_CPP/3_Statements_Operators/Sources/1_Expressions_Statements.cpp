@@ -79,6 +79,8 @@ Operators:
         average = (double)total / count;    // This is old style C++ casting, we want to use the new static_cast<> casting
             - (conversion) just assumes that the variable can and will change data types, compiler assumes it can perform the 
                 cast. New casting <> checks to see if the variable can be casted to the new data type. 
+
+    Testing For Equality: 
 */
 
 
