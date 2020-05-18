@@ -104,6 +104,36 @@ Operators:
             The C++ compiler will eventually round numbers for large percision and then perform the equality check. If percision
             is important we generally will not use the built in data types, instead we will use specific libraries built for 
             percision. 
+
+    Relational Operators:
+        - <, >, <=, >= 
+        - This also returns a boolean value.
+        
+    Logical Operators:
+        - NOT Operator = ! / not keyword
+        - AND Operator = && / and keyword
+        - OR Operator = || / or keyword 
+
+        - These operators work on boolean expressions, and evaluate to booleans themselves.
+        - Generally C++ code does not use the not, and, or keywords
+        
+        - Operator precidence: NOT > AND > OR 
+        - ex) num1 >= 10 && num1 < 20;  // num1 is required to be here twice, they need to be full expressions between the &&
+
+        Short Circuit Evaluation:
+            - When evaluating a logical expression the C++ compiler stops as soon as the result is known
+            ex) expr1 && expr2 && expr3;    // If expr1 is false, then there is no way the entire expression is true. compiler
+                will not evaluate the rest of the line.
+            ex) expr1 || expr2 || expr3;    // If expr1 is true, then the entire thing evaluates to true. No need to evaluate the
+                rest of the line. If expr1 is false then the compiler will move onto the next evaluation of expr2.
+
+    Compound Assignment Operators:
+        - +=, -=, *=, /=, %= 
+        - (bitwise operators) >>=, <<=, &=, ^=, |= 
+    
+    Operator Precidence:
+        - https://en.cppreference.com/w/cpp/language/operator_precedence
+        - This is the full list of the operator precidence in C++.
 */
 
 
