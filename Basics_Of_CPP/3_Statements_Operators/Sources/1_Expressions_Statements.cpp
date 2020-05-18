@@ -81,6 +81,29 @@ Operators:
                 cast. New casting <> checks to see if the variable can be casted to the new data type. 
 
     Testing For Equality: 
+        - == and != compares the values of 2 expressions.
+        - == equal to.
+        - != not equal to.
+        - These comparisons will evaluate to a boolean. (true or false | 1 or 0)
+            std::cout << (num1 == num2);    // this will output 1 or 0 depending on what num1 and num2 are.
+        
+        - If we wanted to print true or false instead of 1 or 0 we can use boolalpha. This is located in <iostream> and we would 
+            need to use the scope resolution operator. We need to stream this to the standard output first.
+
+            std::cout << std::boolalpha;
+
+            Once we streamed this to the standard output for the remainder of the program the output will be true/false instead
+            of 1s and 0s.
+
+        - if we want to turn off the printing of true and false we can use noboolalpha which is also located in the <iostream>.
+            We need to stream this to the standard output, and for the remainder program it will no longer print out true/false
+
+            std::cout << std::noboolalpha;
+
+        - Percision and equality. We need to pay attention when large amount of percision is involved in equality expressions. 
+            The C++ compiler will eventually round numbers for large percision and then perform the equality check. If percision
+            is important we generally will not use the built in data types, instead we will use specific libraries built for 
+            percision. 
 */
 
 
@@ -88,6 +111,10 @@ Operators:
 
 
 int main() {
+    // percision and equality example:
+    std::cout << std::boolalpha;
+    std::cout << (12 == 11.999999999999999) << "\n";        // 15 decimal places
+    std::cout << (12 == 11.9999999999999999) << "\n";       // 16 decimal places
 
     return 0;
 }
