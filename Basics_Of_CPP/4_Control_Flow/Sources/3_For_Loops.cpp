@@ -160,8 +160,11 @@ int main() {
         running_sum += temp;
     }
 
-    average_temp = running_sum / temps.size();
-    std::cout << "Average temp: " << average_temp << "\n";
+    if (temps.size() != 0) {
+        // prevent division by zero
+        average_temp = running_sum / temps.size();
+        std::cout << "Average temp: " << average_temp << "\n";
+    }
 
     return 0;
 }
