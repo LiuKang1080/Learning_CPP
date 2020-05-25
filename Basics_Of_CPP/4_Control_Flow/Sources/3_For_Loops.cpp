@@ -77,11 +77,68 @@ For Loops
         for (unsigned int i=0; i<nums.size(); i++) {
             std::cout << nums[i];
         }
+
 Ranged-Based For Loops:
+    - Introduced in C++11.
+    - General Syntax:
+
+        for (var_data_type var_name: sequence_or_collection) {
+            statements;     // can use var_name here
+        } 
+
+    - Loop through a collection of elements, accessing each element in the collection. We do not have to worry about the length
+        or the bounds of the collection.
+    - var_name takes the value of the elements in the collection. var_data_type should be the same data type as the elements in
+        the collection.
+
+        int scores[] = {100, 90, 80};
+
+        for (int score: scores) {
+            std::cout << score << "\n";
+        } 
+
+        - int score is the dummy variable.
+        - scores is the collection that we will be iterating over.
+
+    - auto keyword:
+    - Tells the C++ compiler to deduce the data type of the collection by itself.
+
+        for (auto score: scores) {
+            std::cout << score << "\n";
+        }
+
+    - Here int vs auto does not help us a whole lot, but with large / complex data types it can be hard to find the data type,
+        using auto then would be good.
+
+    - Initializing a collection with no data:
+        - We would need to manually keep track of the size ourselves.
+        - We can manually add in the collection within the ( ) of the for loop.
+
+        double average_temp;
+        double running_sum;
+        int size = 0;
+
+        for (auto temp: {60.0, 80.3, 92,6, 76.5, 64.7}) {
+            running_sum += temp;
+            ++size;
+        }
+        
+        average_temp = running_sum / size;
+
+        - Here we manually provide the collection.
+
+    - Iterating over a string:
+
+        for (auto i: "Hello World!") {
+            std::cout << i << "\n";
+        }
+
+        - We can do this since a String is a collection of characters.
 */
 
 
 #include <iostream>
+#include <vector>
 
 
 int main() {
@@ -92,7 +149,19 @@ int main() {
         sum += i;
     }
     
-    std::cout << sum;
-    
+    std::cout << sum << "\n";
+
+    // ranged-based for loop. Average temps:
+    std::vector<double> temps {87.2, 70.3, 90.8, 86.9, 70.2};
+    double average_temp;
+    double running_sum;
+
+    for (auto temp: temps) {
+        running_sum += temp;
+    }
+
+    average_temp = running_sum / temps.size();
+    std::cout << "Average temp: " << average_temp << "\n";
+
     return 0;
 }
