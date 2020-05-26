@@ -59,8 +59,8 @@ Random Number Generation:
             for (int n = 0; n < 10; ++n) {
                 std::cout << dis(gen) << "\n";
             }
-        
 */
+
 
 #include <iostream>
 #include <iomanip>
@@ -68,8 +68,12 @@ Random Number Generation:
 // need to #include <cstdlib> for rand() for random number generation
 #include <random>
 // random module for std::uniform_int_distribution<> and std::uniform_real_distribution<>
+#include <ctime>
+// getting the current time for seed geenration
+
 
 int main() {
+    /*
     // generate random int number between 1 and 10
     std::random_device rd; //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
@@ -80,9 +84,11 @@ int main() {
     for (int i=1; i<=10; i++) {
         std::cout << dis(gen) << "\n";
     }
+    */
 
-    std::cout << "=============== \n";
+    // std::cout << "=============== \n";
 
+    /*
     // generate a random float / double between 2.25 and 7.75
     std::cout << std::fixed << std::setprecision(4);
 
@@ -95,6 +101,33 @@ int main() {
     for (int i=1; i<=10; i++) {
         std::cout << dist(mt) << "\n";
     }
+    */
+
+    // Guess the random number
+    // initialize random int number between 1 and 10
+    std::random_device rd;
+    std::mt19937 gen(static_cast<long unsigned int> (std::time(nullptr)));
+    // current seed is noe based on time
+    std::uniform_int_distribution<int> dis(1, 10);
+    // here we have a uniform distribution of ints between 1 and 10
+    int random_number = dis(gen);
+    int guess {};
+
+    // set up game:
+    std::cout << "Random number has been selected between 1 and 10. Guess the number: ";
+    std::cin >> guess;
+
+    while (guess != random_number) {
+        if (guess < random_number) {
+            std::cout << "The random number is larger. Try again: ";
+            std::cin >> guess;
+        } else {
+            std::cout << "The random number is smaller. Try again: ";
+            std::cin >> guess;
+        }
+    }
+
+    std::cout << "Congratulations, you guessed the number!";
 
     return 0;
 }
