@@ -108,7 +108,8 @@ Declaring / Initializing Strings:
 int main() {
     std::string s1 = "Hello";
     s1 += " Bob";
-    std::cout << s1.length();
+    std::cout << s1.length() << "\n";
+    std::cout << s1;
 
     return 0;
 }
