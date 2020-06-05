@@ -119,5 +119,11 @@ int main() {
     std::cout << s1.length() << "\n";
     std::cout << s1;
 
+    std::cout << "\n";
+    std::string secret_message {};
+    std::cout << "Enter your message: ";
+    std::getline(std::cin, secret_message);
+    std::cout << "The secret message: "<< secret_message << " is: " << secret_message.length() << " characters long.";
+
     return 0;
 }
