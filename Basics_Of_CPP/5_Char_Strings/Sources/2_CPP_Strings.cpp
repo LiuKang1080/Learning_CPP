@@ -50,6 +50,14 @@ Declaring / Initializing Strings:
                                                 that represents the char. These are the ASCII codes of those characters.
         }
 
+        Manual for looping with strings:
+        std::string s1 = "Apple";
+        for (size_t i=0; i<s1.length(); i++) {
+            std::cout << s1.at(i) << "\n";
+        } 
+
+        - The data type of i is size_t, this is the proper way to do it.
+
     - Comparing Strings:
         - ==, !=, <, <=, >, >=
         - Compared character by character lexically (capital letters come first then lower case).
