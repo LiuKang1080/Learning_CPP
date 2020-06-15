@@ -34,6 +34,21 @@ Return Statement:
     - The return value is the result of the function call.
 
 Defualt Argument Values:
+    - When a function is called, all arguments must be provided.
+    - We can tell the compiler to use default values if the arguments aren't provided.
+    - Default values can be in prototypes or definitions but NOT in both.
+        - The best practice is to set the default values in the function prototypes.
+        - Default values must appear at the tail end of the parameter list.
+    - We can have multiple default values.
+        - Default values must appear consecutively at the tail end of the parameter list.
+
+    - ex) 
+
+        double calc_cost(double base_cost=100.00, double tax_rate, double shipping=5.00);
+
+        - This will result in a compiler error. We cannot provide a default to base_cost, not provide one for tax_rate, and then
+            provide one for shipping. Once we start providing a defualt the rest of the parameters MUST contain default values.
+            In this example tax_rate must have a default value. 
 */
 
 
