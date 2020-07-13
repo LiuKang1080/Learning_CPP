@@ -37,7 +37,22 @@ Scope:
 #include <iostream>
 
 
+// function definitions:
+void static_variable() {
+    static int num1 = 100;
+    std::cout << num1 << "\n"; 
+    num1 += 10;
+    std::cout << num1 << "\n"; 
+}
+
+
 int main() {
+    // static variable example:
+    static_variable();
+    static_variable();
+    static_variable();
+    // we see that the value of num1 is being preserved, it is not being reset to 100 each time the static_variable() function is
+    // called.
 
     return 0;
 }
