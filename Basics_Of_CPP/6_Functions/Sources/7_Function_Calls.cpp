@@ -31,6 +31,36 @@ Scope:
             - Sometimes functions can change the value of the global variable, we manually need to keep track of the values and 
                 detrermine if the change is intended or not. Don't use global variables! const global variables or constexpr are
                 fine.
+
+Function Calls:
+    - Functions use the "Function Call Stack", an area in memory.
+    - LIFO = Last In First Out
+        - Analogous to a stack of books or pancakes
+    - Push and Pop data 
+        - Push = Put a data item onto the stack.
+        - Pop = Remove a data item from the stack. (Remove from the top of the stack)
+    
+    - Stack Frame or Activation Record: 
+        - Functions must return control to the function that called it.
+        - Each time a function is called the compiler creates a new activation record and pushes it onto the stack.
+        - When a function terminates the compiler pops the activation record and returns control to the function that called it.
+        - Local variables and function parameters are allowed on the stack.
+        - We cannot jump into the middle of the stack. We must start at the top of the stack and work or way down.
+
+    - Stack Size:
+        - The stack size is finite in terms of memory.
+        - Stackoverflow: Too many function calls and activation records pushed onto the stack. Generally this is unrecoverable,
+            and the program crashes and terminates.
+
+    - Stack Memory Structure: From top to bottom
+        - Heap
+            - Pointers 
+            - "Free Storage"
+        - Stack 
+            - Function calls
+            - Function parameters 
+        - Static / Global Variables
+        - Code Area 
 */
 
 
