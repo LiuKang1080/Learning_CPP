@@ -61,6 +61,31 @@ Function Calls:
             - Function parameters 
         - Static / Global Variables
         - Code Area 
+
+Inline Functions:
+    - Function calls have some overhead since the function and its parameters get put onto the stack.
+    - If we have a very simple function, sometimes the overhead of moving the function on the call stack might be more than just
+        running the function.
+    - We can suggest to the compiler to compile the functions 'inline'.
+        - This avoids function call overhead
+        - generates inline assembly code
+        - faster
+        - could create code bloat (do not abuse)
+    - Generally inline functions are located in .h header files, since the definitions must be available to every source file
+        that uses it.
+
+    - General Syntax for inline functions:
+
+        inline int add_numbers(int a, int b) {
+            return a + b;
+        }
+
+        int main() {
+            int result = 0;
+            result = add_numbers(10, 20);
+
+            return 0;
+        }
 */
 
 
