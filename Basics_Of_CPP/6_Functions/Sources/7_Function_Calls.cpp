@@ -86,18 +86,62 @@ Inline Functions:
 
             return 0;
         }
+
+Recursive Functions:
+    - Function that calls itself, either directly or indirectly.
+    - Recursive problem solving
+        - Contains a base case
+        - Divide the rest of the problem into sub-problems and do a recursive call.
+    
+    - Math: 
+        - Factorials, Fibonacci, Fractals...
+    - Searching & Sorting:
+        - Binary Search, Searching Trees...
+
+    - Recursion is a form of iteration. If recursion does not stop, we will have an infinite recursion.
+    - Recusrion can be resource intensive (Call Stack).
+    - Watch for StackOverflow Errors.
+    - Base Cases terminates the recursion. They are needed!
+    - Only use recursion when it makes sense.
+    - Anything that can be done recursivly can be done iteratively.
+
+    - Factorial Example:
+
+        unsigned long long factorial(unsigned long long n) {
+            if (n == 0) {                   // base case
+                return 1;
+            }
+
+            return n * factorial(n-1);      // recursive case
+        } 
+
+        int main() {
+            std::cout << factorial(10) << "\n";
+
+            return 0;
+        }
 */
 
 
 #include <iostream>
 
 
-// function definitions:
+/* Function Definitions: */
+// static variable example:
 void static_variable() {
     static int num1 = 100;
     std::cout << num1 << "\n"; 
     num1 += 10;
     std::cout << num1 << "\n"; 
+}
+
+// fibonacci function:
+unsigned long long fib(unsigned long long n) {
+    if (n <= 1) {
+        return n;
+    }
+
+    return fib(n-1) + fib(n-2);
 }
 
 
@@ -108,6 +152,11 @@ int main() {
     static_variable();
     // we see that the value of num1 is being preserved, it is not being reset to 100 each time the static_variable() function is
     // called.
+
+    std::cout << "========== \n";
+
+    // fibonacci example
+    std::cout << fib(20) << "\n";
 
     return 0;
 }
