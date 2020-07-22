@@ -81,12 +81,17 @@ int main() {
 
     // uninitialized pointer
     int *p;
+    double *q;
     std::cout << "Value of pointer: " << p << "\n";         // garbage
     std::cout << "Address of pointer: " << &p << "\n";      // address of the pointer
 
     // set pointer to NULL
     p = nullptr;                
     std::cout << "Value of pointer after setting to NULL: " << p << "\n";   // 0
+
+    //size of pointer
+    std::cout << "Size of pointer p: " << sizeof(p) << "\n";
+    std::cout << "Size of pointer q: " << sizeof(q) << "\n";
 
     return 0;
 }
