@@ -43,6 +43,34 @@ Declaring Pointers:
 
     - If you do not initialize a pointer to point to a variable or a function, then we should ALWAYS initialize it to nullptr
         to 'make it null'.
+
+Accessing Pointer Addesses / Storing Addresses in Pointers:
+    - The Address Of Operator: & 
+        - Variables are stored in unique addresses in memory.
+        - & is a unary operator, evaluates to the address of its operand.
+        - The operand cannot be a constant or an expression that evaluates to temp values.
+
+        int num = 10;
+        std::cout << num << "\n";
+        std::cout << &num << "\n";      // this is given as a hexadecimal value
+
+    - Addresses of pointer variables, we use the & operator.
+    - sizeof() operator on pointers:
+        - Don't confuse the size of a pointer and the size of what it is pointing to.
+        - ALL pointers in a program are the same size regardless of what it is pointing to.
+        
+    - Pointers in C++ are typed pointers. The compiler will make sure that the address stored in a pointer variable is of the 
+        correct type.
+
+        int score = 10;
+        double high_temp = 100.00;
+
+        int *p_score = nullptr;         // ok
+        p_score = &score;               // ok
+        p_score = &high_temp            // compiler error. An int pointer trying to point to a double data type.
+
+Void Pointer:
+    - The void pointer, generally is not used in C++. They are more used in C.
 */
 
 
@@ -51,9 +79,14 @@ Declaring Pointers:
 
 int main() {
 
-    // create a NULL pointer and print it
-    int *p_number {nullptr};
-    std::cout << p_number << "\n";
+    // uninitialized pointer
+    int *p;
+    std::cout << "Value of pointer: " << p << "\n";         // garbage
+    std::cout << "Address of pointer: " << &p << "\n";      // address of the pointer
+
+    // set pointer to NULL
+    p = nullptr;                
+    std::cout << "Value of pointer after setting to NULL: " << p << "\n";   // 0
 
     return 0;
 }
