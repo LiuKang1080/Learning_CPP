@@ -71,14 +71,43 @@ Accessing Pointer Addesses / Storing Addresses in Pointers:
 
 Void Pointer:
     - The void pointer, generally is not used in C++. They are more used in C.
+
+Dereferencing a Pointer:
+    - Dereferencing a pointer = Acces the data we're pointing to.
+    - p_score is a pointer with a valid address, then we can access the data at the address contained in p_score using the 
+        dereference operator *
+
+    ex) 
+
+        int score = 100;
+        int *p_score = &score;
+
+        std::cout << *p_score << "\n";      // 100
+        *p_score = 500;                     // store 500 into the address we're pointing to 
+        std::cout << *p_score << "\n";      // 500
+        std::cout << score << "\n";         // 500
+
+    - We use the * to declare the pointer. Once we have the pointer declared, the * operator is used to dereference that pointer.
+
+    ex)
+
+        double high_temp = 100.00;
+        double low_temp = 20.00;
+        double *p_temp = &high_temp;
+
+        std::cout << *p_temp << "\n";       // 100.00
+        p_temp = &low_temp;
+        std::cout << *p_temp << "\n";       // 20.00
 */
 
 
 #include <iostream>
+#include <string>
 
 
 int main() {
 
+    /* initializing pointers */
     // uninitialized pointer
     int *p;
     double *q;
@@ -92,6 +121,16 @@ int main() {
     //size of pointer
     std::cout << "Size of pointer p: " << sizeof(p) << "\n";
     std::cout << "Size of pointer q: " << sizeof(q) << "\n";
+    std::cout << "========== \n";
+
+    /* dereferencing pointers */
+    // initialize variables
+    std::string name = "Bob";
+    std::string *p_string = &name;
+
+    std::cout << *p_string << "\n";
+    name = "Alice";
+    std::cout << *p_string << "\n";
 
     return 0;
 }
