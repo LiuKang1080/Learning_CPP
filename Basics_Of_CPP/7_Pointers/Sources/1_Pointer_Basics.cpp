@@ -98,11 +98,25 @@ Dereferencing a Pointer:
         std::cout << *p_temp << "\n";       // 100.00
         p_temp = &low_temp;
         std::cout << *p_temp << "\n";       // 20.00
+
+Dereferencing A Pointer That Is Pointing to a Vector:
+    - To index the specific element we will use a combination of the * operator, and the .at() method.
+    
+    - (*p_vector).at(index)
+        - p_vector is a pointer that is pointing to a vector
+        - the ( ) is required since the . operator for the at() method has higher precedence.
+
+    for (auto element: *p_vector) {
+        std::cout << element << "\n";
+    }
+
+    - notice the *p_vector. We need to derference the pointer that is pointing to the vector to access the individual elements.
 */
 
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 
 int main() {
@@ -131,6 +145,34 @@ int main() {
     std::cout << *p_string << "\n";
     name = "Alice";
     std::cout << *p_string << "\n";
+    std::cout << "========== \n";
+
+    /* Accessing elements of a vector using pointers */
+    // set up vector
+    std::vector<std::string> stooges {"Larry", "Moe", "Curly"};
+    // create pointer
+    std::vector<std::string> *p_vector = nullptr;
+    p_vector = &stooges;
+
+    std::cout << "First Stooge: " << (*p_vector).at(0) << "\n"; 
+    // What is p_vector pointing to? It is pointing to stooges.
+    
+    // We use the * operator to dereference and get the value of what the pointer is pointing to: in this case it is pointing to
+    // the stooge vector.
+    
+    // dereferencing the pointer will give us the entire vector. This is equal to saying stooges.at(0).
+    
+    // The ( ) is required! Without them we would read it as: get the first element of the vector p_vector, and then
+    // * dereference that first element. The . operator has higher precedence over the * operator. With the ( ) added we now read
+    // it as: dereference what the pointer is pointing to, in this case it the entire vector. We then find the first element of 
+    // the vector using the .at(0) method.
+
+    //    (*p_vector)   .   at(0);
+    //      stooges     .   at(0);
+
+    for (auto stooge: *p_vector) {
+        std::cout << stooge << "\n";
+    }
 
     return 0;
 }
