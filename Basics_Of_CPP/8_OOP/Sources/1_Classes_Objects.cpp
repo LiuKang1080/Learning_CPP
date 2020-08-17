@@ -61,16 +61,32 @@ Declaring a Class and Creating Objects:
             declaration(s);
         };
 
+    - Best programming practice is to capitalize the class name.
+    - Do not forget the trailing semi-colon ; after the braces { }.
 
+        class Player {
+            // attributes
+            std::string name;
+            int health;
+            int xp;
 
+            // methods
+            void talk(std::string text);
+            bool is_dead();
+        };
 
+    - Creating objects
 
+        Player bob;
+        Player alice;
 
+        Player *enemy = new Player();   // allocate memory 
+        delete enemy;                   // delete to free up memory
 
-
-
-
+    - Create pointers to objects. Pointer to Player object, create it dynamically on the heap, then delete it after it's used.
+    - Once we have objects we can use them like any other variable in C++.
 */
+
 
 #include <iostream>
 
