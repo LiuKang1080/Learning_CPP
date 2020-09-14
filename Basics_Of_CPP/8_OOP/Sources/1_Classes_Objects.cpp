@@ -92,7 +92,6 @@ Declaring a Class and Creating Objects:
 
 
 int main() {
-
-    std::cout << "testing \n";
+    
     return 0;
 }
