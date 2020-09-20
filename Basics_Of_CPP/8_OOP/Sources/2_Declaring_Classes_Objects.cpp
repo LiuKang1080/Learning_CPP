@@ -1,7 +1,7 @@
 // Declaring Classes and Creating Objects in C++
 
 /*
-Declaring Classes
+Declaring Classes:
     - General Syntax:
 
         class Class_Name {
@@ -62,13 +62,71 @@ Declaring Classes
 
     - Remember that if we do not explicitly gives values to the attributes in classes, they will contain garabe data until we 
         provide data to them.
+
+Accessing Class Members:
+    - We can access class attributes and methods. Some class members will not be available for us to access.
+    - We need an object to access the instance variable. It doesn't make sense to access a class directly without doing so 
+        through the object.
+    
+    - There are 2 ways to access Class members:
+        1) The . operator
+        2) The arrow operator (member of pointer operator)
+    
+    1) The dot operator:
+
+        Account bob_account;
+        std::cout << bob_account.balance << "\n"; 
+        bob_account.deposit(100.00);
+
+    2) The arrow operator (member of pointer operator)
+    - If we have a pointer to an object we need to manually use the . operator or the arrow operator.
+
+        Account *jim_account = new Account();
+        std::cout << (*jim_account).balance << "\n";
+        (*jim_account).deposit(100.00);
+
+        // *jim_account is NOT an Account object, it is a pointer pointing to an Account object, which is dynamically allocated
+            on the heap.
+        // (*jim_account).deposit(100.00) We must use the () to dereference the pointer first since the . operator has higher
+            precedence. Dereference the pointer first, and then access the attribute with the . operator.
+
+        OR 
+
+        Account *jim_account = new Account();
+        std::cout << jim_account->balance << "\n";
+        jim_account -> deposit(100.00);
+
+    - The spacing does not matter between the ->
+    - -> dereferences the thing on the left, and then access the attribute provided on the right. The attribute must be an
+        attribute of the class or we will get a compiler error. 
+
+    - By default all of the attributes and methods of a class are private by defualt. By defualt we do not have access to them.
 */
 
 
 #include <iostream>
+#include <string>
+#include <vector>
+
+
+class Account {
+public:
+    // attributes
+    std::string name;
+    double balance = 100.00;
+
+    // methods
+    bool withdraw(double amount);
+    bool deposit(double amount);
+};
 
 
 int main() {
+    Account *jim_account = new Account(); 
+    std::cout << jim_account->balance << "\n";
+    std::cout << jim_account -> balance << "\n";
+
+    // jim_account->deposit(100.00);
 
     return 0;
 }
