@@ -101,32 +101,85 @@ Accessing Class Members:
         attribute of the class or we will get a compiler error. 
 
     - By default all of the attributes and methods of a class are private by defualt. By defualt we do not have access to them.
+
+Member Access Modifiers:
+    - C++ provides 3 member access modifiers:
+        1) Public - Accessible everywhere
+        2) Private - Accessible only by members or friends of the class
+        3) Protected - Used in inheritance
+
+    - General Syntax:
+        - In the body of the class we can specify the access the modifier followed by a colon : 
+        - All members after we declare the access modifier will have that access modifier. It will continue to have that modifier
+            until we have another access modifier or until the definition of the class is done.
+        - If no access modifier is specified, then by defualt all members of the class will have private member access.
+        - Generally we use a combination of private and public modifiers:
+
+        class Player {
+        private:
+            std::string name;
+            int health;
+            int xp;
+        
+        public:
+            void talk(std::string text);
+            bool is_dead();
+        };
+
+    - We will get a compiler error when we try to access private member of a class.
+    - Why do we need to make some members private while others public? We want to control the access to certain data within
+        methods by making them private.
 */
 
 
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 
 
 class Account {
-public:
     // attributes
+    private:
     std::string name;
-    double balance = 100.00;
+    double balance = 0.00;
 
     // methods
-    bool withdraw(double amount);
-    bool deposit(double amount);
+    public:
+    void display_balance() {
+        std::cout << "Displaying current balance: " << balance << "\n";
+    }
+
+    void withdraw(double amount) {
+        double original_balance = balance;
+
+        if ((balance -= amount) >= 0.00) {
+            std::cout << "Withdrew: " << amount << " Balance is now: " << balance << "\n";
+        } else {
+            std::cout << "Could not withdraw the amount provided: " << amount << " Instead you withdrew: " << original_balance << "\n";
+            balance = 0.00;
+        }
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        std::cout << "Deposited: " << amount << " Total current balance is now: " << balance << "\n";
+    }
 };
 
 
 int main() {
-    Account *jim_account = new Account(); 
-    std::cout << jim_account->balance << "\n";
-    std::cout << jim_account -> balance << "\n";
 
-    // jim_account->deposit(100.00);
+    std::cout << std::fixed << std::setprecision(2);
+
+    Account *jim_account = new Account(); 
+    jim_account->display_balance();
+    jim_account -> display_balance();
+
+    jim_account->deposit(500.00);
+    jim_account->withdraw(100.00);
+    jim_account->withdraw(999.99);
+    jim_account->display_balance();
 
     return 0;
 }
