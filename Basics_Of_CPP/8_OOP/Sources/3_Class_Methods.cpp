@@ -69,16 +69,31 @@ Using Seperate Files:
     - Generally the class implementation is written in its own seperate .cpp file
     - look at { Account.cpp }
 
+    - Now that we have our specification in the .h header file and the implementation in the .cpp file, how can we use the 
+        Account class in main.cpp?
+    - This file will refer to as the main.cpp file. 
 
-
-
+    - We just #include "Account.h" the header file. 
+    - It is important that we always include .h header files and never .cpp files 
+    - We then write our main.cpp 
+    - Both the main.cpp and the Account.cpp are compiled and linked to produce the .exe
 */
 
 
 #include <iostream>
+#include <iomanip>
+
+#include "Account.h"
 
 
 int main() {
+    std::cout << std::fixed << std::setprecision(2);
+
+    // create a new object using the Account class
+    Account bob_account;
+    bob_account.set_balance(1000.00);
+
+    std::cout << bob_account.get_balance() << "\n";
 
     return 0;
 }
