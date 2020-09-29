@@ -23,7 +23,8 @@ Default Constructor
             }
 
     - Once a constructor is defined for the class, C++ will NOT generate a defualt constructor. If we need to use a defualt
-        constructor then we need to manually define the defualt constructor along with the other constructors. 
+        constructor then we need to manually define the defualt constructor along with the other constructors.
+    - Generally we want to provide our own defualt constructor.
 */
 
 
