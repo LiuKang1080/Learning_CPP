@@ -107,7 +107,7 @@ int main() {
     // initialize random int number between 1 and 10
     std::random_device rd;
     std::mt19937 gen(static_cast<long unsigned int> (std::time(nullptr)));
-    // current seed is noe based on time
+    // current seed is now based on time
     std::uniform_int_distribution<int> dis(1, 10);
     // here we have a uniform distribution of ints between 1 and 10
     int random_number = dis(gen);
