@@ -112,6 +112,7 @@ Delegating Constructors:
 
         Player::Player(std::string name_val, int health_val, int xp_val)
             : name{name_val}, health{health_val}, xp{xp_val} {
+                std::cout << "3 args constructor is called. \n";
         }
 
         - this is the 3 args constructor with the standard member initialization list
@@ -122,6 +123,7 @@ Delegating Constructors:
 
         Player::Player()
             : Player { "None", 0, 0 } {
+                std::cout << "no args constructor is called. \n";
         }
 
         - The no args constructor is the delegating constructor since it is delegates object initialization to another constructor
@@ -130,6 +132,7 @@ Delegating Constructors:
 
         Player::Player(std::string name)
             : Player {name_val, 0, 0} {
+                std::cout << "1 args constructor is called \n";
         }
 
         - Once again the single args constructor is the delegating constructor, it will call the 3 args constructor and pass in
@@ -139,6 +142,11 @@ Delegating Constructors:
         constructors.
     - You cannot delegate to another constructor and provide initialization values to class members.
     - In this example both of the constructors are delegating to the 3 args constructor.
+
+    - Remember that when delegation happens to another constructor whatever code is within the constructor that is called will be
+        executed. ex) When the no args constructor is called it will delegate to the 3 args constructor first and the first thing
+        that prints is "3 args constructor is called." then the rest of the code within the no args constructor will execute
+        printing "no args constructor is called."
 */
 
 
