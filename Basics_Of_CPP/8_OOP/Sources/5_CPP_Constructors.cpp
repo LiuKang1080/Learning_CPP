@@ -100,6 +100,45 @@ Constructor Initialization Lists:
 
     - Notice that there is no code within the code block following the initializatin list within the constructor body. We can
         implement code within the code body if we need to.
+
+Delegating Constructors:
+    - Often the code for the constructors are similar.
+    - Duplicate code within constructors will result in errors.
+    - C++ allows delegating constructors 
+    - Code for one constructor that can call another in the initialization list. Avoids duplicate code.
+    - General syntax: After the parameter list we have the : following this is the call to the constuctor we wish to call.
+
+    - 3 args constructor
+
+        Player::Player(std::string name_val, int health_val, int xp_val)
+            : name{name_val}, health{health_val}, xp{xp_val} {
+        }
+
+        - this is the 3 args constructor with the standard member initialization list
+    
+    - No args constructor: When we build the no args constructor we will call the 3 args constructor and pass in the initialization
+        data we need.
+    - We provide the constructor name which is the same name as the class followed by the arguments to the constructor.
+
+        Player::Player()
+            : Player { "None", 0, 0 } {
+        }
+
+        - The no args constructor is the delegating constructor since it is delegates object initialization to another constructor
+
+    - single args constructor: 
+
+        Player::Player(std::string name)
+            : Player {name_val, 0, 0} {
+        }
+
+        - Once again the single args constructor is the delegating constructor, it will call the 3 args constructor and pass in
+            the arguments provided.
+    
+    - Note that this only works in the initialization list, we cannot call the other constructors from the body in the delegating
+        constructors.
+    - You cannot delegate to another constructor and provide initialization values to class members.
+    - In this example both of the constructors are delegating to the 3 args constructor.
 */
 
 
