@@ -147,6 +147,32 @@ Delegating Constructors:
         executed. ex) When the no args constructor is called it will delegate to the 3 args constructor first and the first thing
         that prints is "3 args constructor is called." then the rest of the code within the no args constructor will execute
         printing "no args constructor is called."
+
+Constructor Parameters and Defualt Values:
+    - Default constructor parameters have the same rules as non-member functions (regular functions).
+    - ex)
+
+        class Player {
+        private:
+            std::string name;
+            int health;
+            int xp;
+        
+        public:
+            Player(std::string name_val="None", int health_val=0, int xp_val=0);
+        };
+
+    - Single constructor with 3 args and has defualt values.
+    - The implementation of the constructor will look like:
+
+        Player::Player(std::string name_val, int health_val, int xp_val)
+            : name{name_val}, health{health_val}, xp{xp_val} {
+        }
+
+    - We do not supply the defualt parameters here in the implementation.
+    - Remember that the implementation of the constructor is outside of the class initialization.
+    - Rather than having multiple constructors overloading, we can have a single/few (as long as it's not ambigous to the compiler),
+        with default parameters that does the job of several constructors.
 */
 
 
