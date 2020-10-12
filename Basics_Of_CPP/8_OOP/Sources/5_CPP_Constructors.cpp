@@ -173,6 +173,52 @@ Constructor Parameters and Defualt Values:
     - Remember that the implementation of the constructor is outside of the class initialization.
     - Rather than having multiple constructors overloading, we can have a single/few (as long as it's not ambigous to the compiler),
         with default parameters that does the job of several constructors.
+
+Copy Constructor:
+    - When objects are copied C++ must create a new object from an existing object 
+    - When do copies happen?
+        - Passing object by value as a parameter (defualt mode to pass in data to functions, so a copy is made).
+        - Returning an object from a function by value.
+        - Constructing one object based on another of the same class.
+
+    - C++ must have ways of copying so it provides a compiler defined copy-constructor when we do not provide it.
+    - Copy constructor copies the values of each data member to the new object (defualt memberwise copy).
+    - We need to pay attention to see if we have a pointer data member:
+        - The pointer will be copied.
+        - The data to what the pointer is pointing to will NOT be copied.
+        - Shallow vs. Deep copying
+
+    - Best practices with copy constuctors:
+        - Always provide a copy constructor when the class has raw pointer members.
+        - Provide the copy constructor with a const modifier reference paramemeter.
+        - Use STL classes as they already provide copy constructors.
+        - Avoid using raw pointer data members if possible.
+
+    - Method signature sytax for the copy constructor:
+    - General Syntax:
+
+        Type::Type(const Type &source);
+
+    - ex)
+
+        Player::Player(const Player &source);
+        Account::Account(const Account &source);
+
+    - Implementing the Copy Constructor
+
+        Type::Type(const Type &source) {
+            // code or initialization list to copy the object
+        }
+
+    - Full implementation for the Player and Account classes
+
+        Player::Player(const Player &source)
+            : name{source.name}, health{source.health}, xp{source.xp} {
+        }
+
+        Account::Account(const Account &source)
+            : name{source.name}, balance{source.balance} {
+        }
 */
 
 
