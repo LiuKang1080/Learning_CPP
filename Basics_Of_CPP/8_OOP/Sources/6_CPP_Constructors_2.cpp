@@ -67,6 +67,57 @@ Shallow Copying with the Copy Constructor:
 
             return 0;
         }
+
+Deep Copying with the Copy Constructor:
+    - Creates a copy of the pointed to data. 
+    - Each copy will have a pointer to unique storage on the heap.
+    - We use Deep copying when we have a raw pointer as a class data member.
+    - Instead of copying the pointer, we copy the data that the pointer is pointing to.
+    - We usually need to allocate storage first and then perform the copy.
+
+    - ex) Deep:
+
+        class Deep {
+        private:
+            int *data;                  // pointer
+
+        public:
+            Deep(int d);                // constructor
+            Deep(const Deep &source);   // copy constructor
+            ~Deep()                     // destructor
+        }
+
+    - Implementing the Deep Constructor using Shallow copy:
+
+        Deep::Deep(int d) {
+            data = new int;             // allocate storage on the heap
+            *data = d;
+        }
+
+    - Destructor implementation:
+
+        Deep::~Deep() {
+            delete data;                // free storage
+            std::cout << "Destructor called " << "\n";
+        }
+
+    - Implementation the Deep Constructor using Deep copy:
+
+        Deep::Deep(const Deep &source) {
+            data = new int;                 // allocate storage
+            *data = *source.data;
+            std::cout << "Copy constructor - Deep Copying" << "\n";
+        }
+
+    - Deep copying creates new storage and copy values.
+
+
+
+
+
+
+
+
 */
 
 
