@@ -110,6 +110,36 @@ Deep Copying with the Copy Constructor:
         }
 
     - Deep copying creates new storage and copy values.
+
+Deep Copying Constructor - Delegating Constructor:
+    
+    Deep::Deep(const Deep &source) 
+        : Deep {*source.data} {
+        std::cout << "Copy Constructor - Deep" << "\n";
+    }
+
+    - Delegate to deep(int) and pass in the int(*source.data) source is pointing to.
+
+    - ex)
+
+    void display_deep(Deep s) {
+        std::cout << s.get_data_value() << "\n";
+    }
+
+    - When s goes out of scope the destructor is called and releases data, this is no longer a problem since the storage being
+        released is unique to s.
+
+    - Sample main:
+
+        int main() {
+            Deep obj1 {100};
+            display_deep(obj1);
+
+            obj1.set_data_value(1000);
+            Deep obj2 {obj1};
+        }
+
+    - This code will run without crashing.
 */
 
 
