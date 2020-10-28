@@ -29,7 +29,7 @@ Shallow Copying with the Copy Constructor:
     - Implementation of the copy constructor:
 
         Shallow::Shallow(int d) {
-            data = new int;         // allocate storage
+            data = new int;                     // allocate storage
             *data = d;              
         }
 
@@ -79,25 +79,25 @@ Deep Copying with the Copy Constructor:
 
         class Deep {
         private:
-            int *data;                  // pointer
+            int *data;                      // pointer
 
         public:
-            Deep(int d);                // constructor
-            Deep(const Deep &source);   // copy constructor
-            ~Deep()                     // destructor
+            Deep(int d);                    // constructor
+            Deep(const Deep &source);       // copy constructor
+            ~Deep()                         // destructor
         }
 
     - Implementing the Deep Constructor using Shallow copy:
 
         Deep::Deep(int d) {
-            data = new int;             // allocate storage on the heap
+            data = new int;                 // allocate storage on the heap
             *data = d;
         }
 
     - Destructor implementation:
 
         Deep::~Deep() {
-            delete data;                // free storage
+            delete data;                    // free storage
             std::cout << "Destructor called " << "\n";
         }
 
@@ -110,14 +110,6 @@ Deep Copying with the Copy Constructor:
         }
 
     - Deep copying creates new storage and copy values.
-
-
-
-
-
-
-
-
 */
 
 
