@@ -185,7 +185,6 @@ Move Constructors and Move Semantics:
         int &&x_ref = x;        // this will result in a compiler error since x is addressable
 */
 
-// testing commit 
 
 #include <iostream>
 
