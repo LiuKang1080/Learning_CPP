@@ -140,6 +140,49 @@ Deep Copying Constructor - Delegating Constructor:
         }
 
     - This code will run without crashing.
+
+Move Constructors and Move Semantics:
+    - Introduced in C++11
+    - In order to understand move semantics, we need to be familiar with L-Values and R-Values.
+        - Remember that if an object is addressable then it is a L-Value.
+        - R-Values are everything else.
+    - In move semantics, R-Values refer to the temporary objects that are created by the compiler, and the objects returned from
+        methods.
+    - ex) 
+
+        int total {0};
+        total = 100 + 200;
+
+        - 100 and 200 are evaluated, and 300 is stored in an unnamed temp value. 300 is then stored in the variable total. temp
+            is then discarded.
+        - 300 is not addressable, it's an R-Value, then assigned to the L-Value total
+        - The same thing happens to objects as well in regards to classes.
+
+    - When to use Move Constructors / Move Semantics?
+        - Sometimes copy constructors are called many times automatically due to the copy semantics in C++.
+        - Copy constructors during Deep Copying can have significant performance bottlenecks.
+        - C++ 11 introduced Move Semantics and the Move Constructor. Move Constructor move an object rather than copying it.
+        - It's optional, but recommended when we have raw pointers. Remember that if we have a raw pointer, then we must 
+            implement Deep Copying which can be expensive.
+        - Copy elision: C++ may optimize copying away completly (RVO - Return Value Optimization)
+
+    - R-Value References:
+        - Used in Moving Semantics and Perfect Forwarding.
+        - Move Semantics is all about R-Value references.
+        - Used by the move constructor and move assignment operator to efficiently move an object rather than copying it.
+    
+    - R-Value Reference Operator ( && )
+
+    - ex)
+
+        int x {100};
+        int &l_ref = x;         // l-value reference, l_ref is a reference to x
+        l_ref = 10              // change x to 10
+
+        int &&r_ref = 200;      // r-value ref, 200 is not addressable, so it's an r-value 
+        r_ref = 300;            // change r_ref to 300
+
+        int &&x_ref = x;        // this will result in a compiler error since x is addressable
 */
 
 
