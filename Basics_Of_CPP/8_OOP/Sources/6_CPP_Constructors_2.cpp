@@ -173,7 +173,7 @@ Move Constructors and Move Semantics:
     
     - R-Value Reference Operator ( && )
 
-    - ex)
+    - ex) l_values:
 
         int x {100};
         int &l_ref = x;         // l-value reference, l_ref is a reference to x
@@ -183,6 +183,116 @@ Move Constructors and Move Semantics:
         r_ref = 300;            // change r_ref to 300
 
         int &&x_ref = x;        // this will result in a compiler error since x is addressable
+
+    ex) r_values:
+
+        int x {100};            
+        int &l_ref = x;         // l-value reference
+        l_ref = 10;             // change x to 10
+
+        int &&r_ref = 200;      // r-value reference
+                                // remember that this is a reference to the actual variable, it is refering to a temp variable
+
+        r_ref = 300;            // change r_ref to 300
+        int && x_ref = x        // compiler Error
+                                // trying to assign an l-value to an r-value reference
+
+    - l-value reference parameters in functions:
+
+        int x {100};            // x is an l-value
+        
+        void func(int &num);    // A
+                                // wants an l-value as an arugment (single &) 
+
+        func(x);                // calls A: x is an l-value
+        func(200);              // Error: 200 is an r-value 
+
+        Error: Cannot bind non-const lvalue reference of type 'int&' to an rvalue of type 'int'
+
+    - r-value reference parameters in functions:
+
+        int x {100};            // x is an r-value
+
+        void func(int &&num);   // B
+                                // wants an r-value as an argument (double &&)
+        
+        func(200);              // calls B: 200 is an r-value
+        func(x);                // Error: x is an l-value 
+
+        Error: Cannot bind rvalue reference of type 'int&&' to an lvalue of type 'int'
+
+    - Both l and r values function signitures:
+        overloaded functions:
+        void func(int &num);    // A
+        void func(int &&num);   // B 
+
+        func(x);                // calls A
+        func(200);              // calls B
+
+Creating the Move Constructor
+    - Move Class:
+
+        class Move {
+        private:
+            int *data;          // raw pointer
+
+        public:
+            void set_data_value(int d) {
+                *data = d;
+            }
+
+            void get_data_value() {
+                return *data;
+            }
+
+            Move(int d);                // constructor
+            Move(const Move &source);   // copy constructor
+
+            ~Move();                    // destructor    
+
+        };
+
+    - Implementing the copy constructor (deep copy):
+
+        Move::Move(const Move &source) {
+            data = new int;
+            *data = *source.data;       // allocates storage and copies 
+        }
+
+    - inefficient copying 
+
+        std::vector<Move> vec;
+        vec.push_back(Move{10});
+        vec.push_back(Move{20});
+
+        // Move{10} and Move{20} are creating temporary objects, they're unnamed, they will be r-values 
+        // this is inefficient, due to the copy constructor being called several times. It is better to implement the 
+            move constructor
+
+    - Implementing the Move constructor:
+        - Instead of making a deep copy, the move constructor will 'move' the resource.
+        - Simply copies the address of the resource from source to the current object.
+        - NULLs out the pointer in the source pointer.
+        - Very efficient.
+
+        - General syntax:
+
+        Type::Type(Type &&source);  // no const qualifier for the parameter source. There can't be a const, we need to modify
+                                        it in order to null out the pointer
+
+        Player::Player(Player &&source);
+        Move::Move(Move &&source);
+
+    - Implementing the Move Constructor in the Move class (Line 233)
+
+        Move::Move(Move &&source)
+            : data {source.data} {
+            
+            source.data = nullptr;
+        }
+
+    - We add this move construcor to Line 250
+    - The Move Constructor will 'steal' the data, and then NULL out the source pointer.
 */
 
 
