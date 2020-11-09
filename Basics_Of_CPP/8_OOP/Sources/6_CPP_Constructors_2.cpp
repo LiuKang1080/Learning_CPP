@@ -229,7 +229,7 @@ Move Constructors and Move Semantics:
         func(x);                // calls A
         func(200);              // calls B
 
-Creating the Move Constructor
+Creating the Move Constructor:
     - Move Class:
 
         class Move {
