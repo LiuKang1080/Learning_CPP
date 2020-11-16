@@ -56,6 +56,9 @@ Static  Class Members:
         void display_active_players() {
             std::cout << "Number of active players: " << Player::get_num_players() << "\n";
         }
+
+    - static functions only has access to static members. They do not have access to the other members.
+    - static only belongs to the class, they are not a part of objects.
 */
 
 
