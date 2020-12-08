@@ -88,6 +88,76 @@ Overloading the Assignment Operator (Copy Assignment Operator)
             assignment.
 
         s1 = s2 = s3;
+
+Overloading the Assignment Operator (Move)
+    - We can choose to overload the move assignment operator, C++ will use the copy assignment operator if necessary,
+
+        Mystring s1;
+        s1 = Mystring {"bob"};      // Move assignment
+
+    - If we have a raw pointer, we should overload the assignment operator for efficiency.
+    - The copy assignment operator works with L-Value references, the Move Operator that we will overload works with R-Value 
+        references (think temporary, un-named objects).
+
+    - Overload the Move Assignment Operator: The declaration is very similar to the Copy Assignment
+
+        Type &Type::operator=(Type &&rhs);
+
+        // tell the compiler that the right side object is an r-value reference. cannot be const, since we will by modifying that
+        object when we move the data
+
+        Mystring &Mystring::operator=(Mystring &&rhs);
+
+        s1 = Mystring("Joe");       // Move operator= called
+        s1 = "Bob";                 // Move operator= called
+
+    - Full definition:
+
+        Mystring &Mystring::operator=(Mystring &&rhs) {
+            if (this == &rhs) {     // self assignment
+                return *rhs;        // return current object
+            }
+
+            delete[] str;           // deallocate current storage
+            str = rhs.str;          // steal the pointer
+
+            rhs.str = nullptr;      // NULL out the rhs object
+            return *this;           // return the current object
+        }
+
+    - We are not deep copying the data, we're stealing the pointer and then NULL-ing out the rhs pointer.
+
+    - Steps for Overloading the Move Assignment Operator:
+    - Step 1: Check for self assignment:
+
+        if (this == &rhs) {
+            return *this;       // return the current object
+        } 
+
+        - If we self assign, then we will just return the LHS and we're done.
+
+    - Step 2: deallocate storage for this->str
+
+        delete[] str;
+
+        - If we're not self assigning, then we decallocate the storage that is pointed to by the LHS object since we're overriding
+            this, and we do not want a memory leak. Now the LHS object is ready, so now we can move the pointer over.
+
+    - Step 3: Steal the Pointer from the RHS object and assign it to this->str
+
+        str = rhs.str;
+        
+        - Copy of a pointer variable, we're not doing a deep copy here.
+
+    - Step 4: NULL out the RHS pointer
+
+        rhs.str = nullptr;
+
+        - This step is critical!
+
+    - Step 5: Return the current object by reference to allow chain assignment
+
+        return *this;
 */
 
 
