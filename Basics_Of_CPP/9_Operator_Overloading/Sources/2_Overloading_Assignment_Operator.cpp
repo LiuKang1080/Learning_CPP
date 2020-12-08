@@ -90,6 +90,8 @@ Overloading the Assignment Operator (Copy Assignment Operator)
         s1 = s2 = s3;
 
 Overloading the Assignment Operator (Move)
+    - Generally the Overloading of the Assignment Operator (Move) declaration will be the header file, and the actual definition
+        will be in the .cpp file (NOT main.cpp!)
     - We can choose to overload the move assignment operator, C++ will use the copy assignment operator if necessary,
 
         Mystring s1;
