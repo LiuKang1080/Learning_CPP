@@ -62,6 +62,10 @@ General Syntax of Inheritance in C++:
         delete p_save_account;
 
     - Inheritance as an idea can be very simple, but the detail implementation can get complex, especially in C++.
+
+Full Implementation of Inheritance:
+    - Look at the example in the folder: 10_Inheritance/Sources/Account_Savings
+    - Contains the Account class, and the Savings class that is inherited from the Account class.
 */
 
 
