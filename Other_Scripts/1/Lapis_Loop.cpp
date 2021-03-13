@@ -7,12 +7,12 @@ Lapis Lazuli - Blessing of the Departed Table:
     - Find the total number of lapis required to max out the entire full stat
 
 Full Blessings of the Departed Table:
-    - 0 / 60: Loot +Value Modifier
-    - 0 / 5: Effect of Jizo Blessing: Uncommon Strength
-    - 0 / 5: Effect of Jizo Blessing: Uncommon Defense
-    - 0 / 5: Effect of Jizo Blessing: Uncommon Mercy
-    - 0 / 5: Spectral Salve Limit
-    - 0 / 5: Spectral Salve Potency
+    - 0 / 60: Loot +Value Modifier - Starting cost = 10
+    - 0 / 5: Effect of Jizo Blessing: Uncommon Strength - Starting cost = 20
+    - 0 / 5: Effect of Jizo Blessing: Uncommon Defense - Starting cost = 20
+    - 0 / 5: Effect of Jizo Blessing: Uncommon Mercy - Starting cost = 20
+    - 0 / 5: Spectral Salve Limit - Starting cost = 20
+    - 0 / 5: Spectral Salve Potency - Starting cost = 20
     - 0 / 20: Ethereal Drop Rate
     - 0 / 5: Higher Item Level Drop Rate
 */
@@ -42,7 +42,7 @@ void total_lapis(int iterations, int cost, int cost_increment=1) {
 
 int main() {
     
-    total_lapis(60, 10);    
+    total_lapis(5, 20, 20);    
 
     return 0;
 }
@@ -50,11 +50,11 @@ int main() {
 /*
 Total Lapis required to max out a stat in the Blessings of the Departed Table:
     - 2440: Loot +Value Modifier
-    -  Effect of Jizo Blessing: Uncommon Strength
-    -  Effect of Jizo Blessing: Uncommon Defense
-    -  Effect of Jizo Blessing: Uncommon Mercy
-    -  Spectral Salve Limit
-    -  Spectral Salve Potency
+    - 420: Effect of Jizo Blessing: Uncommon Strength
+    - 420: Effect of Jizo Blessing: Uncommon Defense
+    - 420: Effect of Jizo Blessing: Uncommon Mercy
+    - 420: Spectral Salve Limit
+    - 420: Spectral Salve Potency
     -  Ethereal Drop Rate
     -  Higher Item Level Drop Rate
 */
