@@ -42,14 +42,14 @@ void total_lapis(int iterations, int cost, int cost_increment=1) {
 
 int main() {
     
-    total_lapis(20, 20, 20);    
+    total_lapis(5, 20, 20);    
 
     return 0;
 }
 
 /*
 Total Lapis required to max out a stat in the Blessings of the Departed Table:
-    - 2,440: Loot +Value Modifier
+    - 2,035 + 100 + 420 = 2,555: Loot +Value Modifier (increases by +1 from 0 to 54, +100 at 55, +20 from 56 to 60)
     - 420: Effect of Jizo Blessing: Uncommon Strength
     - 420: Effect of Jizo Blessing: Uncommon Defense
     - 420: Effect of Jizo Blessing: Uncommon Mercy
@@ -59,6 +59,6 @@ Total Lapis required to max out a stat in the Blessings of the Departed Table:
     - 420: Higher Item Level Drop Rate
 
     - (420 * 6) = 2,520
-    - 2,520 + 2,440 + 4,620 = 9,580
-    - 9,580 Lapis Lazuli required to max out the entire Blessings of the Departed table.
+    - 2,520 + 2,555 + 4,620 = 9,695
+    - 9,695 Lapis Lazuli required to max out the entire Blessings of the Departed table.
 */
