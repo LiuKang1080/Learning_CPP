@@ -48,7 +48,7 @@ The Override Specifier:
     class Derived: public Base {
     public:
         virtual void say_hello() override {             // produces compiler error. Error: marked override, but does not override
-            std::cout << "Derived class object \n";
+            std::cout << "Derived class object \n";     // This error is a soft error telling us that we're missing the const!
         }
 
         virtual ~Derived() {}
