@@ -53,6 +53,49 @@ The Override Specifier:
 
         virtual ~Derived() {}
     };
+
+    - by using the override specifier keyword, we ensure that the compiler will check for us and ensure that we will actually
+        override the method that we want. 
+
+The Final Specifier:
+    - There are 2 contexts regarding the final specifier:
+
+        1) The Class Level:
+            - Prevents a class from being derived from.
+
+        2) The Method Level: 
+            - Prevents a virtual method from being overridden in a derived class.
+
+    - Geerlly these specifiers are used to for better compiler optimazation.
+    - General Syntax:
+
+        class my_class final {
+            ... 
+        };
+
+        class Derived final: public Base {
+            ...
+        };
+
+    - In these examples, my_class cannot be derived from, and the Derived class cannot be derived from. We will get a compiler
+        error if we try to do so.
+
+    Method Examples:
+
+        class A {
+        public:
+            virtual void do_something();
+        };
+
+        class B: public A {
+        public:
+            virtual void do_something() final;          // prevents further overridding
+        };
+
+        class C: public B {
+        public:
+            virtual void do_something();                // compiler error: Cannot override due to final specifier from class B
+        };
 */
 
 
