@@ -11,7 +11,14 @@ Base Class References:
 
         Account a;
         Account &ref = a;
+
+    - ref is a variable, &ref if a reference, Account &ref is a reference to an Account. This is the Base class reference
+
         ref.withdraw(100);      // Account::withdraw
+
+    - ref.withdraw will be bound dynamically, when this is called it will check that the reference is to. Since this is a
+        reference to an Account type object, it will call the specific withdraw method for that class, in this case
+        Account::withdraw
 
         Trust t;
         Account &ref_1 = t;
@@ -25,6 +32,8 @@ Base Class References:
         void do_withdraw(Account &account, double amount) {
             account.withdraw(amount);
         }
+
+    - do_withdraw expects a reference to an Account object, this is the Base class reference.
 
         Account a;
         do_withdraw(a, 100);    // Account::withdraw
