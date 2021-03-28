@@ -104,9 +104,80 @@ Summary:
 
 
 #include <iostream>
+#include <vector>
+
+
+// Abstract Base Class
+class Shape {
+public:
+    virtual void draw() = 0;        // pure virtual function
+    virtual void rotate() = 0;      // pure virtual function
+    virtual ~Shape() {};
+
+    // since the draw() and rotate methods are pure virtual functions, this makes the Shape class an Abstract Class
+    // we cannot instantiate objects from this class!
+};
+
+// Derived Circle Class (Concrete Class)
+class Circle: public Shape {
+public:
+    virtual void draw() override {
+        std::cout << "Calling the draw() method from the Derived Circle Class: Drawing a Circle \n";
+    }
+
+    virtual void rotate() override {
+        std::cout << "Calling the rotate() method from the Derived Circle Class: Rotating a Circle \n";
+    }
+
+    // destructor (needs to be virtual since it is virtual in the base class)
+    virtual ~Circle() {
+        std::cout << "Destrcutor for the Circle is called \n";
+    };
+};
+
+// Derived Square Class (Concrete Class)
+class Square: public Shape {
+public:
+    virtual void draw() override {
+        std::cout << "Calling the draw() method from the Derived Square Class: Drawing a Square \n";
+    }
+
+    virtual void rotate() override {
+        std::cout << "Calling the rotate() method from the Derived Square Class: Rotating a Square \n";
+    }
+
+    // destructor (needs to be virtual since it is virtual in the base class)
+    virtual ~Square() {
+        std::cout << "Destructor for the Square is called \n";
+    };
+};
 
 
 int main() {
+
+    // we cannot create Shape objects since it is a Abstract Class
+    // both of the lines below will result in compiler errors!
+    // Shape my_shape;
+    // Shape *ptr = new Shape();
+
+    // These methods in the derived class are dynamically bound at run-time
+    // all of our derived classes are concrete classes
+    Shape *s1 = new Circle();
+    Shape *s2 = new Square();
+
+    // create a vector to loop through the shapes, and use their functions
+    // what is the data type in the vector? it is a Shape pointer
+    std::vector<Shape *> my_shapes {s1, s2};
+
+    // loop through the vector
+    for (const auto ptr: my_shapes) {
+        ptr->draw();
+        ptr->rotate();
+    }
+
+    // delete the pointers once we're done using them
+    delete s1;
+    delete s2;
 
     return 0;
 }
