@@ -56,6 +56,10 @@ The Override Specifier:
 
     - by using the override specifier keyword, we ensure that the compiler will check for us and ensure that we will actually
         override the method that we want. 
+    
+    - Gnerally we want to use the override specifier keyword for all of the methods we will override in the derived class.
+    - virtual function() methods are in the base class, the derived class will want to override these functions so we use the
+        override specifier. virtual function() override in the Derived class.
 
 The Final Specifier:
     - There are 2 contexts regarding the final specifier:
