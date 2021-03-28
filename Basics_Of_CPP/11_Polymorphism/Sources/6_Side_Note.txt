@@ -1,0 +1,30 @@
+Side Note on Virtual Functions and Pure Virtual Functions
+    - When we're dealing with Virtual functions OR pure virtual functions we MUST provide a body for the method!
+    - Even if it is a destructor we MUST provide a body. We will get errors if we do not provide a body
+    - The general rule is: If the method is a virtual method or a pure virtual method, then we MUST implement a code body!
+        Even if it is empty!
+        
+    - ex) 
+
+        virtual ~Shape();
+
+    - This results in an error!
+
+        virtual ~Shape() {};
+    
+    - This is the RIGHT way to do it!
+    
+Override Specifier Keyword:
+    - We must place the override specifier keyword AFTER the function name. We CANNOT place the keyword wherever we want!
+
+        virtual void draw() override {
+            // code;
+        }
+
+    - The override keyword MUST come AFTER the method name!
+
+        override virtual void draw() {
+            // code;
+        }
+
+    - This will result in an ERROR!
