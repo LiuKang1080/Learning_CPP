@@ -118,6 +118,8 @@ class I_Printable {
 
 public:
     virtual void print(std::ostream &os) const = 0;
+    virtual ~I_Printable() = default;
+    // the I_Printable destructor, we can say = defualt, to tell the compiler to auto generate a simple defualted destructor
 };
 
 // implement the friend method
