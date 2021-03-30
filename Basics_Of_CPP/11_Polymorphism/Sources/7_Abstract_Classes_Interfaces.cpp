@@ -111,7 +111,120 @@ Abstract Classes as Interfaces:
 #include <iostream>
 
 
+// A Generic Printable Interface that prints out any object:
+// Printable Interface
+class I_Printable {
+    friend std::ostream &operator<<(std::ostream &os, const I_Printable &obj);
+
+public:
+    virtual void print(std::ostream &os) const = 0;
+};
+
+// implement the friend method
+std::ostream &operator<<(std::ostream &os, const I_Printable &obj) {
+    obj.print(os);
+    return os;
+}
+
+// now all of the account types inherits from the I_Printable interface, and they MUST implement the print function
+// Account Class
+class Account: public I_Printable {
+public:
+    virtual void withdraw(double amount) {
+        std::cout << "Account::withdraw() method is called \n";
+    }
+
+    // override the pure virtual function from I_Printable
+    virtual void print(std::ostream &os) const override {
+        os << "Account Display \n";
+    }
+
+    virtual ~Account() {
+        std::cout << "Account destructor called \n";
+    }
+};
+
+// Checking Class
+class Checking: public Account {
+public:
+    virtual void withdraw(double amount) {
+        std::cout << "Checking::withdraw() method is called \n";
+    }
+
+    // override the virtual function from Account, we MUST override this and implement the specific method in this class!
+    virtual void print(std::ostream &os) const override {
+        os << "Checking Display \n";
+    }
+
+    virtual ~Checking() {
+        std::cout << "Checking destructor called \n";
+    }
+};
+
+class Savings: public Account {
+public:
+    virtual void withdraw(double amount) {
+        std::cout << "Savings::withdraw() method is called \n";
+    }
+
+    // override the virtual function from Account
+    virtual void print(std::ostream &os) const override {
+        os << "Savings Display \n";
+    }
+
+    virtual ~Savings() {
+        std::cout << "Savings destructor called \n";
+    }
+};
+
+class Trust: public Account {
+public:
+    virtual void withdraw(double amount) {
+        std::cout << "Trust::withdraw() method is called \n";
+    }
+
+    // override the virtual function from Account
+    virtual void print(std::ostream &os) const override {
+        os << "Trust Display \n";
+    }
+
+    virtual ~Trust() {
+        std::cout << "Trust destructor called \n";
+    }
+}; 
+
+// A "Dog" class that wants to be printable
+class Dog: public I_Printable {
+public:
+    virtual void print(std::ostream &os) const override {
+        os << "Dog Class Displayed \n";
+    }
+};
+
+// we can take this 1 step further, we can create a generic C++ function that takes in ANYTHING (as long as it is inherited in 
+// some way from I_Printable) and prints it out
+void print(const I_Printable &obj) {
+    std::cout << obj << "\n";
+}
+
+
 int main() {
+
+    // Account and Checking pointers
+    Account *p1 = new Account();
+    Account *p2 = new Checking();
+
+    std::cout << *p1 << "\n";
+    std::cout << *p2 << "\n";
+
+    // create a dog class
+    Dog *dog = new Dog();
+    std::cout << *dog << "\n";
+
+    // delete pointers when we're done with them
+    delete p1;
+    delete p2;
+    delete dog;
 
     return 0;
 }
