@@ -4,6 +4,8 @@
 Unique Pointer | std::unique_ptr:
     - Simple smart pointer, very efficient.
     - Drop in replacement for raw pointers in many cases.
+    - Unique pointers are located in the <memory> header file
+    - #include <memory>
 
     - General Syntax:
 
