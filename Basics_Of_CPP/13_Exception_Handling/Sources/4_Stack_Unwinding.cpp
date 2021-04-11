@@ -76,7 +76,7 @@ int main() {
         - With the exception caught in B, B finishes, A finishes, and finally main finishes. Notice how C does NOT finish!
     */
 
-    try{
+    try {
         func_a();
     } catch (int &ex) {
         std::cerr << "Error exception caught in main. \n";
