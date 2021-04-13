@@ -56,7 +56,7 @@ Catch ALL Handler:
 double calculate_mpg(int miles, int gallons) {
     if (gallons == 0) {
         throw 0;
-    } 
+    }
     if (miles<0 || gallons<0) {
         std::cout << "Either Miles or Gallons is less than 0. \n";
         throw std::string {"Negative Value Error. \n"};
