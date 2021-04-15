@@ -53,6 +53,13 @@ User Defined Exceptions:
 // Exception classes:
 class DivideByZeroException {
 public:
+    /*
+        - remember that can have C++ create a default constructor and destructor for us:
+
+        DivideByZeroException() = default;
+        ~DivideByZeroException() = default;
+    */
+
     // constructor
     DivideByZeroException() {
         std::cout << "Divide by zero constructor called. \n";
@@ -67,6 +74,13 @@ public:
 
 class NegativeValueException {
 public:
+    /*
+        - remember that can have C++ create a default constructor and destructor for us:
+
+        NegativeValueException() = default;
+        ~NegativeValueException() = default;
+    */
+
     // constructor
     NegativeValueException() {
         std::cout << "Negative value exception constructor called. \n";
