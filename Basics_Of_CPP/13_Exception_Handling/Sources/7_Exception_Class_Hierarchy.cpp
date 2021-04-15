@@ -2,6 +2,8 @@
 
 /*
 std::exception Class Hierarchy:
+    - #include <exception> (Not always required)
+        - look into the exception header file.
     - C++ provides a class hierarchy of exception classes.
     - std::exception is the base class (ALL other exception classes are derived from it).
     - ALL subclasses implement the what() virtual function.
