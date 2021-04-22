@@ -79,20 +79,87 @@ Reading from a text file:
 
 4) Reading From Files:
     - There are many ways to read from files.
-    - 
+    - We can use the extraction operator for formatted reads from files.
+    - We use the extraction operator the same way we used it for cin.
 
+        // File Contents
+        [
+            100
+            123.45
+            Bob
+        ]
 
+        int num {};
+        double total {};
+        std::string name {};
 
+        in_file >> num;
+        in_file >> total >> name;
+        // we assume that in_file is created successfully
 
+.getline() Method:
+    - We can use the .getline() method to get 1 line at a time.
 
+        [This is a line] File Contents
 
+        std::string line {};
+        std::getline {in_file, line};
 
+        - in_file = The stream we're reading from
+        - line = The stream we're reading it to
 
+    - The entire line up to the new line character will be read in, and stored into the string variable named line.
 
+Reading Line By Line Using a For Loop:
 
+        std::ifstream in_file {"../myfile.txt"};    // open file
+        std::string line {};
 
+        if (!in_file) {                             // check to see if the file is open 
+            std::cerr << "File Open Error \n";
+            return 1;                               // exit the program (main)
+        }
 
+        while (!in_file.eof()) {                    // while not at the end of the file eof() method
+            std::getline(in_file, line);
+            std::cout << line << "\n";              // display the line 
+        }
 
+        // close the file when we're done working with it
+        in_file.close();
+
+Different Version of a While Loop:
+
+        while (std::getline(in_file, line)) {       // read a line
+            std::cout << line << "\n";
+        }
+
+        // close the file when we're done working with it
+        in_file.close();
+
+    - We can embed many of the string input statements into the while loop condition.
+    - These statements return a reference to the stream object, they'll only return a true value if the read line was successful.
+    - When we reach end of the file or some other error occurs, they will not return true and the while loop stops.
+
+Reading A Text File 1 Character At A Time. .get() Method:
+    
+        std::ifstream in_file {"../myfile.txt"};    // open file
+        char c;
+
+        if (!in_file) {                             // check to see if the file is open 
+            std::cerr << "File Open Error \n";
+            return 1;                               // exit the program
+        }
+
+        while (in_file.get(c)) {                    // get a character
+            std::cout << c;                         // display that character
+        }
+
+        // close the file when we're done using it
+        in_file.close()
+
+    - The .get() method is generally for unformatted files. Unformatted reads 1 character at a time, regardless of what that
+        character is.
 */
 
 
