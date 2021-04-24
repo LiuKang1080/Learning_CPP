@@ -168,6 +168,107 @@ Reading A Text File 1 Character At A Time. .get() Method:
 
 
 int main() {
+    /*
+    - Testing opening a file:
+        
+            std::ifstream in_file;
+            in_file.open("C:\dir\dir2\test.txt");
+
+        - For windows we CANNOT do this! C++ treats \ as an escape character in strings.
+        - Here \d becomes something and compiler tries to change it into an escape character.
+        - If we want to use absolute paths, we need to use 2 back slashes ( \\ )
+        - In windows, paths can also have forward slashes ( / ), behind the scenes C++ will map / into the correct characters
+        - It is recommended to use relative paths when using paths for files.
+        
+            "/test.txt"
+        
+        - This looks in the current directory for the file.
+        - Paths are also IDE dependent! We need to be careful when we set up the paths.
+        
+        - Check to see if the file is properly opened:
+
+            if (!in_file) {
+                std::cerr << "File Open Error \n";
+                return 1; 
+                OR
+                std::exit(1);
+            } else {
+                std::cout << "File is Open \n";
+            }
+
+        - Sometimes in code we will see exit(1); Here exit is a function call that closes up certain things, and destroys static
+            variables before closing the program.
+
+        - When we create the file / try to access the file, we need to make sure that those files are in the SAME directory as
+            the .cpp file (Again this is IDE dependent!).
+        - The real reason is because certain IDEs generally will produce the .exe in the same directory as the .cpp file. When
+            the program actually runs, the .exe is the one that is running, the .exe is the one looking for the specific file.
+            Certain IDEs will generate the .exe in another location, we need to make sure that the specific file is in the same
+            location as the .exe 
+        - In windows ../ means "go 1 directory above me", we can use this for the IDEs that need them.
+
+        - After we've properly loaded the file, we can now read the contents of the file:
+
+            std::string line;
+            int num;
+            double total;
+
+            in_file >> line >> num >> total;
+
+        - Remember the >> (extraction operator) stops at the first space, and stores the "word" into the specified variable.
+        - The extraction operator is pretty flexible it will work when data is formatted like:
+            Hello 100 200.25 
+
+            OR 
+
+            Hello 
+            100
+            200.25
+
+        - Close file when we're done
+
+            in_file.close();
+
+        - Continously read data from a file using a loop:
+
+            while (!in_file.eof()) {
+                in_file >> line >> num >> total;
+                stdS::cout << line << num << total << "\n";
+            }
+
+        - .eof() stands for end of file.
+    */
+
+    // set up the variables
+    std::string line;
+    int num;
+    double total;
+
+    // open the file
+    std::ifstream in_file;
+    in_file.open("test.txt");
+
+    // check to see if the file is properly opened
+    if (!in_file) {
+        std::cerr << "File Open Error \n";
+        return 1;
+    }
+
+    // read contents from the file
+    while (!in_file.eof()) {
+        in_file >> line >> num >> total;
+        std::cout << line << " " << num << " " << total << "\n";
+    }
+
+    // close the file when we're done using it
+    in_file.close();
+
+    /*
+        - Pay really close attention to the ACTUAL contents of the file! Notice if the file has an extra line at the end of the
+            file. If it has an extra empty line, then the while loop will still execute another iteration. An empty line at the
+            end of the file is NOT the actual end of the file. If we have an extra empty line at the end of the file, then the
+            loop will run once more! Pay attention to how the file ends! 
+    */
 
     return 0;
 }
