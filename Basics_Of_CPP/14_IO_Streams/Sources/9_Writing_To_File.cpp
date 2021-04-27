@@ -163,24 +163,24 @@ Writing to Files Challenge:
     - format the Copy.txt file so that each line starts with a line number, followed by the sentence text.
 */
 
-    // set up the variables
-    int line_number = 1;
-    std::string line {};
-
     // create the input / output files objects
     std::ifstream in_file {"Original.txt"};
     std::ofstream out_file {"Copy.txt"};
 
     // test to see if file opening is successful
-    if (!in_file) {
+    if (!in_file.is_open()) {
         std::cerr << "Error Opening File: Original.txt \n";
         return 1;
     }
 
-    if (!out_file) {
+    if (!out_file.is_open()) {
         std::cerr << "Erro Opening File: Copy.txt \n";
         return 1;
     }
+
+    // set up the variables. More efficient if we set up the variables AFTER we check to see if the file opening is successful.
+    int line_number = 1;
+    std::string line {};
 
     // perform data processing
     // read from the file and copy text over to the other file
