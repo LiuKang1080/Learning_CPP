@@ -165,6 +165,7 @@ Reading A Text File 1 Character At A Time. .get() Method:
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 
 int main() {

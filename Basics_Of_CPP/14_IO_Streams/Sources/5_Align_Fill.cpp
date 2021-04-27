@@ -66,6 +66,7 @@ setfill() Method:
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 
 void ruler() {

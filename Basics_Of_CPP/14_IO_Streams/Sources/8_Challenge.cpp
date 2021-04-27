@@ -35,6 +35,7 @@ Challenge:
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <string>
 
 
 void print_student(const std::string &student, int score) {
