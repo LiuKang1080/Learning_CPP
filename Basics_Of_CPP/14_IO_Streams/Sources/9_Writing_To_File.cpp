@@ -151,9 +151,50 @@ Using Formatted Read and Writes to Files:
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 
 int main() {
+/*
+Writing to Files Challenge:
+    - A File called Original.txt contain Lorem Ipsum text.
+    - Each line contains a single sentence from the text.
+    - Copy all of the text from the Original file to a file called Copy.txt
+    - format the Copy.txt file so that each line starts with a line number, followed by the sentence text.
+*/
+
+    // set up the variables
+    int line_number = 1;
+    std::string line {};
+
+    // create the input / output files objects
+    std::ifstream in_file {"Original.txt"};
+    std::ofstream out_file {"Copy.txt"};
+
+    // test to see if file opening is successful
+    if (!in_file) {
+        std::cerr << "Error Opening File: Original.txt \n";
+        return 1;
+    }
+
+    if (!out_file) {
+        std::cerr << "Erro Opening File: Copy.txt \n";
+        return 1;
+    }
+
+    // perform data processing
+    // read from the file and copy text over to the other file
+    while (std::getline(in_file, line)) {
+        out_file << line_number << ": " << line << "\n";
+        ++line_number;
+    }
+
+    // close the files
+    in_file.close();
+    out_file.close();
+
+    std::cout << line_number << " Lines were copied over to the new file. \n";
+    std::cout << "Finished copying file. \n";
 
     return 0;
 }
