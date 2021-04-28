@@ -158,6 +158,7 @@ int main() {
 /*
 Writing to Files Challenge:
     - A File called Original.txt contain Lorem Ipsum text.
+    - Lorem Ipsum text is generated from the website: https://www.lipsum.com/
     - Each line contains a single sentence from the text.
     - Copy all of the text from the Original file to a file called Copy.txt
     - format the Copy.txt file so that each line starts with a line number, followed by the sentence text.
