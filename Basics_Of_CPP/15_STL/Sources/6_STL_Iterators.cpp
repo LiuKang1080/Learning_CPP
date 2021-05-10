@@ -120,9 +120,27 @@ Other Iterators:
 
 
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 
 int main() {
+    // This is a string reverse with using the std::reverse function from the algorithm header.
+    // This is the easiest way to reverse a string.
+    std::string str1 = {"This is my string"};
+    std::reverse(str1.begin(), str1.end());
+    std::cout << str1 << "\n";
+
+    // We can manually reverse a string by using the iterator manually, since a C++ string is a container, it will return
+    // an iterator. We can use a reverse iterator and print a reverse string.
+    std::string str2 = {"This is another string"};
+    // using an reverse iterator
+    auto itr = str2.rbegin();
+
+    while (itr != str2.rend()) {
+        std::cout << *itr;
+        ++itr;
+    }
 
     return 0;
 }
