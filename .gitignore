@@ -4,6 +4,14 @@ Learning_CPP.code-workspace
 *.sqlite
 *.ipch
 *.db
+*.obj
+*.idb
+*.pdb
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.log
+*.exe.recipie
 /Algorithms/Project_Euler/.vs/Project_Euler/v16
 /Algorithms/Project_Euler/Debug
 /Algorithms/Project_Euler/Problem_1/Debug/Problem_1.tlog
