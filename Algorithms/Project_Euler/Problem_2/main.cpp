@@ -34,9 +34,11 @@ int fibonacci(int limit) {
 		}
 		
 		if (y >= limit) {
-			return total_sum;
+			break;
 		}
 	}
+
+	return total_sum;
 }
 
 
