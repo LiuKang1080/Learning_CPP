@@ -43,7 +43,8 @@ int fibonacci(int limit) {
 
 
 int main() {
-	std::cout << "Sum of even Fibonacci numbers up to 4 million: " << fibonacci(4000000) << "\n";
+	int limit = 4000000;
+	std::cout << "Sum of even Fibonacci numbers up to " << limit << ": " << fibonacci(limit) << "\n";
 	
 	return 0;
 }
