@@ -14,7 +14,7 @@ int multiple(int limit) {
 	// check to see if the number is divisible by 3 or 5. If it is divisible, then add that number to the total
 	/*
 		parameters:
-		[limit][int]	- The uppoer limit of the loop. 
+		[limit][int] = The upper limit of the loop. 
 	*/
 
 	int total_sum = 0;
