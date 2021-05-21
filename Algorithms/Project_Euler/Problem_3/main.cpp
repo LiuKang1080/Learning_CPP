@@ -22,7 +22,7 @@ NOTES:
 #include <vector>
 
 
-// largest prime factor
+// largest prime factor function
 int largest_prime(long long int num) {
 	/*
 		- Finds the largest prime factor of a given number
