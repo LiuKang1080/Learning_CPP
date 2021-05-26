@@ -13,7 +13,7 @@ C++ Lists:
     - Dynamic Size, changes size dynamically
     - The list is bi-directional (doubly - linked)
     - direct element is NOT provided
-    - Rapis insertion / deletion of elements anywhere in the container (constant time) (O(1))
+    - Rapid insertion / deletion of elements anywhere in the container (constant time) (O(1))
     - All iterators are available.
     - Iterators become invalid when the corresponding element is deleted.
 
