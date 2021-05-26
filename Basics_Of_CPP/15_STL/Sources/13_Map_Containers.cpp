@@ -115,15 +115,57 @@ Unordered-Multimap:
     - Elements are unordered
     - Allows duplicates of elements
     - No reverse iterators are allowed
+
+Some Examples:
+    - Simple function that displays a map that contains a string and a set within it:
+
+        void display(const std::map<std::string, std::set<int>> &m1) {
+            for (const auto &elem: m1) {
+                std::cout << elem.first;
+            
+                for (const auto &set_elem: elem.second) {
+                    std::cout << set_elem;
+                }
+            }
+        }
+
+    - Another example, that prints out all of the elements of a map, that contains template data types:
+
+        template<typename T1, typename T2>
+        void display(const std::map<T1, T2> &m1) {
+            for (const auto &elem: m1) {
+                std::cout << elem.first << ": " << elem.second << "\n";
+            }
+        }
+
+Looping through a Map without knowing what the keys are:
+
+        for (const auto &[key, val]: m1) {
+            std::cout << "Key is: " << key << ", Value is: " << val << "\n";
+        }
+
+    - element.first = access the Key
+    - element.second = access the Value
+
 */
 
 
 #include <iostream>
 #include <map>
 #include <unordered_map>
+#include <string>
 
 
 int main() {
+    std::map<std::string, int> m1 {
+        {"Hello", 50},
+        {"World", 75}
+    };
+
+    // printing out the contents of the map:
+    for (const auto &[key, val]: m1) {
+        std::cout << "Key is: " << key << ", Value is: " << val << "\n";
+    }
 
     return 0;
 }
