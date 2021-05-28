@@ -91,10 +91,18 @@ int result(int limit) {
 	// create an iterator so that we can use it to iterate through the vector container
 	// std::distance() returns the location of where itr is pointing to (itr is pointing to the max_element).
 	// this is the index of the max_element
+
+	// we can also "dereference" the iterator. std::max_element will return the location where the largest integer is.
+	// "dereference" the iterator to get the actual value of max_element.
+
 	std::vector<int>::iterator itr;
 	itr = std::max_element(vec.begin(), vec.end());
-	int index = std::distance(vec.begin(), itr);
-	int result = vec[index];
+	
+	/*int index = std::distance(vec.begin(), itr);*/
+	/*int result = vec[index];*/
+
+	// "dereference" the iterator
+	int result = *itr;
 
 	return result;
 }
