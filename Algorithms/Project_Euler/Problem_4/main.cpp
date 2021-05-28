@@ -18,8 +18,8 @@ bool is_palindrome(const std::string &str) {
 	/*
 		- Checks to see if the given string is a palindrome
 
-		Parameters:	[std::string][str] = passed in by reference.
-		Return:		[bool] = true / false
+		parameters:	[std::string][str] = passed in by reference.
+		return:		[bool] = true / false
 	*/
 
 	// take the string and add it to a deque using a for loop
@@ -56,8 +56,8 @@ int result(int limit) {
 	/*
 		- Returns the largest integer in a vector. This vector contains plaindrome results.
 
-		Parameters:	[int][limit] = The upper limit.
-		Return:		[int][result] = This is the largest value within the 
+		parameters:	[int][limit] = The upper limit.
+		return:		[int][result] = This is the largest value within the 
 	*/
 
 	// test only the numbers between (limit - 100) and the limit.
@@ -101,7 +101,7 @@ int result(int limit) {
 
 
 int main() {
-	// specific soluition to the Project Euler Problem #4
+	// Specific solution to the Project Euler problem number 4:
 	int limit = 1000;
 	std::cout << "The largest palindrome of 2 products up to the Limit: " << limit << " is: " << result(limit) << "\n";
 

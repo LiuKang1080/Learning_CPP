@@ -25,10 +25,12 @@ NOTES:
 // largest prime factor function
 int largest_prime(long long int num) {
 	/*
-		- Finds the largest prime factor of a given number
-		parameters:
-		[long long int][num] = The maximum value within the list of the prime numbers
+		- Finds the largest prime factor of a given number.
+
+		parameters:	[long long int][num] = The maximum value within the list of the prime numbers.
+		return:		[int][vec.back()] = return the last element of the vector, this will be the largest number.
 	*/
+
 	long long int i = 2;
 	int value = 0;
 	std::vector<int> vec1{};
@@ -63,7 +65,7 @@ int largest_prime(long long int num) {
 
 
 int main() {
-	// specific solution for the Project Euler problem number 3
+	// Specific solution for the Project Euler problem number 3:
 	long long int num = 600851475143;
 	std::cout << "The largest prime factor of the number " << num << " is: ";
 	std::cout << largest_prime(num) << "\n";
