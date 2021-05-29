@@ -140,6 +140,8 @@ void print_vector(const std::vector<int> &vec) {
     for (auto i: vec) {
         std::cout << i << " ";
     }
+
+    std::cout << "\n";
 }
 
 
@@ -147,7 +149,7 @@ int main() {
     std::vector<int> vec1 {1, 2, 3};
 
     // show the maximum number of elements the vector can hold:
-    std::cout << vec1.max_size() << "\n";
+    std::cout << "Vector Max Size is: " << vec1.max_size() << "\n";
 
     // erase all even numbers in a vector
     std::vector<int> vec2 {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -174,7 +176,6 @@ int main() {
     */
 
     // print after the even numbers are gone
-    std::cout << "\n";
     print_vector(vec2);
 
     return 0;
