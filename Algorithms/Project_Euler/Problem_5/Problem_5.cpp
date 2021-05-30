@@ -58,3 +58,12 @@ int main() {
 
 	return 0;
 }
+
+/*
+NOTES:
+	- Solution: 232792560
+	- brute_force_method_1 time elapsed: 0.23 seconds average over the course of 3 runs.
+	- brute_force_method_2 time elapsed: 1.20 seconds average over the course of 3 runs.
+	- Run this in Production mode in Visual Studio!
+		- Running this (espeically brute_force_method_2) will take ~3 minutes!
+*/
