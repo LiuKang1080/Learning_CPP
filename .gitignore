@@ -19,3 +19,5 @@ Learning_CPP.code-workspace
 /Algorithms/Project_Euler/Debug
 /Algorithms/Project_Euler/Problem_1/Debug/Problem_1.tlog
 *.ilk
+*.iobj
+*.ipdb

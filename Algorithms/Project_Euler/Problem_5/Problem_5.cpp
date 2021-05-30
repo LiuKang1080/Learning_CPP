@@ -2,71 +2,59 @@
 
 /*
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
-
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 
 
 #include <iostream>
-#include <vector>
+#include <chrono>
+
+#include "includes.h"	
+#include "method_1.h"	// brute_force_method functions
+#include "method_2.h"
 
 
-int brute_force_method_1() {
-	// TODO: Finish Function
-}
+/*
+	- Timer class code is from Learncpp website chapter 11.18 - "Timing Your Code"
+	- https://www.learncpp.com/cpp-tutorial/timing-your-code/
+*/
+class Timer {
+private:
+	// Type aliases to make accessing nested type easier
+	using clock_t = std::chrono::high_resolution_clock;
+	using second_t = std::chrono::duration<double, std::ratio<1> >;
+	std::chrono::time_point<clock_t> m_beg;
 
-int brute_force_method_2(int limit) {
-	/*
-		- We only need to test the numbers between 11 and 20, rather than 1 to 20. Numbers between 1 - 10 are in some form
-			present from 11 to 20, as in a combination of numbers multiplied from 1 to 10 will result in the numbers from 
-			11 to 20. ex) 20 = (2^2 * 5), therefore we do not need to test the numbers 2 and 5.
-		- Rather than starting from 1 and then incrementing upwards until we find our solution, we can start at 2520 since
-			that was the minimum from the previous calculation.
-
-		Parameters:	[int][limit] = the upper limit of the range of numbers we're testing.
-		return:		[int][] = 
-	*/
-
-	int lower_bound = 2520;
-	std::vector<int> result;
-
-	int lower_limit = limit - 9;
-	std::vector<int> vec_range;
-	
-	// fill the vector with numbers that defines the range
-	for (int i = lower_limit; i <= limit; ++i) {
-		vec_range.push_back(i);
+public:
+	Timer() 
+		:m_beg(clock_t::now()) {
+		
+		// Timer constructor
 	}
 
-	/*iterator pointing to the beginning of vec_range
-	auto itr = vec_range.begin();*/
-
-	/*
-		- use a while loop, while the loop is empty increment lower_bound and check to see if all of the numbers in vec_range are
-			wholly divisible by the current increment of lower_bound.	
-	*/
-	while (result.empty()) {
-		for (int i = limit; i >= lower_limit; --i) {
-			if ((lower_bound % i) != 0) {
-				break;
-
-				/*
-					- TODO: Finish function.
-				*/
-			}
-		}
+	void reset() {
+		m_beg = clock_t::now();
 	}
 
-	return result.at(0);
-}
+	double elapsed() const {
+		return std::chrono::duration_cast<second_t>(clock_t::now() - m_beg).count();
+	}
+};
 
 
 int main() {
 	// Specific solution to the Project Euler Problem number 5:
 	int limit = 20;
 	
-	std::cout << "The smallest positive number that is evenly divisible by all of the numbers up to 20 is: ";
-	std::cout << brute_force_method_2(limit);
+	std::cout << "Timer started \n";
+	Timer t;
+	std::cout << "brute_force_method_1 is called. Solution: " << brute_force_method_1() << "\n";
+	std::cout << "Time elapsed: " << t.elapsed() << "\n";
 	
+	std::cout << "Timer started \n";
+	t.reset();
+	std::cout << "brute_force_method_2 is called. Solution: " << brute_force_method_2(limit) << "\n";
+	std::cout << "Time elapsed: " << t.elapsed() << "\n";
+
 	return 0;
 }
