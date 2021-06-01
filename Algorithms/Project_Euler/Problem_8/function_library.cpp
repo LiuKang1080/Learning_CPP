@@ -51,7 +51,7 @@ unsigned long long int adjacent_digits_product(const int &range, const std::stri
 
 	// initialize variables
 	unsigned long long int result = 0;
-	unsigned long long int product;
+	unsigned long long int product = 0;
 	// create temp variables that hold the type cast to int from the type of *itr
 	int leading_cast = 0;
 	int trailing_cast = 0;
@@ -69,12 +69,7 @@ unsigned long long int adjacent_digits_product(const int &range, const std::stri
 	}
 
 	// use while loop to move the leading iterator upwards on each iteration until the end of the string
-	while ((leading_itr != number.end()) || (trailing_itr != number.end())) {
-		if (leading_itr == number.end()) {
-			break;
-		}
-		
-		std::cout << "========== \n";
+	while (leading_itr != number.end()) {
 		/*
 			- Calculate the product within the range.
 			- static_cast<int>(*itr): when we dereference itr we will get a char, we can convert that char into a int. We need 
@@ -94,42 +89,41 @@ unsigned long long int adjacent_digits_product(const int &range, const std::stri
 			8) move leading_itr and trailing_itr upwards by 1 in the next iteration of the while loop
 			9) return the result when the entire while loop is done
 		*/
-		std::cout << "leading_itr is: " << *leading_itr << "\n";
-		std::cout << "trailing_itr is: " << *trailing_itr << "\n";
 
+		// check to see if both of the iterators are pointing to an alphanumeric character. We only want it to point to a alphanum character
+		if ((!std::isalnum(*leading_itr)) && (!std::isalnum(*trailing_itr))) {
+			++leading_itr;
+			++trailing_itr;
+			continue;
+		}
 
 		// cast the trailing and leading iterators to int
 		leading_cast = static_cast<int>(*leading_itr) - 48;
 		trailing_cast = static_cast<int>(*trailing_itr) - 48;
-		std::cout << "leading_cast is: " << leading_cast << "\n";
-		std::cout << "trailing_cast is: " << trailing_cast << "\n";
-
 
 		// set what trailing_itr is pointing to into product. If it's pointing to 0 contiunue the next iteration
 		if ((leading_cast != 0) && (trailing_cast != 0)) {
 			// since trailing and leading itr are not equal to 0, we can add the current trailing number into the product
 			product = trailing_cast;
-			std::cout << "product is currently: " << product << "\n";
 
 			// use a for loop to go through the range up to the leading_itr
 			for (int i = 1; i < range; ++i) {
 				// check to see if trailing_cast is equal to 0
-				if ((trailing_cast != 0) && (leading_itr != number.end())) {
+				if (trailing_cast != 0) {
 					// increment trailing_itr
 					++trailing_itr;
 
 					// recast trailing_cast on each iteration
 					trailing_cast = static_cast<int>(*trailing_itr) - 48;
-					std::cout << "looping trailing_itr, increment trailing_itr by 1. trailing_itr is: " << *trailing_itr << "\n";
 					
 					product *= trailing_cast;
-					std::cout << "looping trailing_itr, product is currently: " << product << "\n";
 					
 				} else {
 					// break if trailing_cast == 0
 					break;
 				}
 			}
+			// product *= leading_cast;
 
 			// reset the trailing_itr back to its original position
 			for (int i = 1; i < range; ++i) {
@@ -137,7 +131,6 @@ unsigned long long int adjacent_digits_product(const int &range, const std::stri
 				// (we can't decrement the iterator when it's at the beginning)
 				if (trailing_itr != number.begin() && (leading_itr != number.end())) {
 					--trailing_itr;
-					std::cout << "moving trailing_itr back to the beginning of the range: trailing_itr is: " << *trailing_itr << "\n";
 				}
 			}
 
@@ -149,46 +142,36 @@ unsigned long long int adjacent_digits_product(const int &range, const std::stri
 					product. We will rest the product back to 1 at the very end of this current loop so that the next iteration
 					can start from the range again.
 			*/
-			//product *= leading_cast;
-			std::cout << "finished the loop, product is: " << product << "\n";
+
+			/*std::cout << "finished the loop, product is: " << product << "\n";*/
 
 			// check to see if the current product is greater than result, if it is then replace result with the current product
 			if (product > result) {
-				std::cout << "product is greater than result, moving the value of product into result. \n";
 				result = product;
 			}
-			std::cout << "result is currently: " << result << "\n";
 
 			// reset the product back to 1 so that the next iteration can start from the beginning of wherever trailing_itr is
 			// pointing to
 			product = 1;
 
 			// increment leading and tailing iterators
-			if ((leading_itr != number.end()) && (trailing_itr != number.end())) {
-				std::cout << "iterators were not 0, incrementing iterators up by 1 \n";
+			if (leading_itr != number.end()) {
 				++leading_itr;
 				++trailing_itr;
 			} else {
 				break;
 			}
 
-			std::cout << "leading_itr is: " << *leading_itr << "\n";
-			std::cout << "trailing_itr is: " << *trailing_itr << "\n";
-			
 		} else { 
 			// if the leading_itr is 0, then that means the entire product is equal to 0
 			// we can need to increment both of the iterators, and then continue onto the next iteration of the loop
-			std::cout << "leading_itr was 0, moving to the next loop. \n";
-
-			if ((leading_itr != number.end()) && (trailing_itr != number.end())) {
+			if (leading_itr != number.end()) {
 				++leading_itr;
 				++trailing_itr;
 			} else {
 				break;
 			}
 
-			std::cout << "leading_itr is: " << *leading_itr << "\n";
-			std::cout << "trailing_itr is: " << *trailing_itr << "\n";
 		}
 	}
 
