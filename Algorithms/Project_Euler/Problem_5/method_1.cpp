@@ -3,7 +3,7 @@
 /*
 	- Project Euler Problem #5. Brute force method. Start at 2520 and increment upwards (no upper bound) until all numbers
 		between 11 and 20 are completely wholy divisible by current iteration number.
-	- Once all numbers between 11 and 20 are wholy divisible by current iteration number, return that number and exit the loop.
+	- Once all numbers between 11 and 20 are wholly divisible by current iteration number, return that number and exit the loop.
 */
 
 
@@ -13,7 +13,7 @@
 
 int brute_force_method_1() {
 	/*
-		- For loop starting at 2520 (the lower_bound) and increment upwards until all numbers from 11 to 20 are wholy divisible by the current
+		- For loop starting at 2520 (the lower_bound) and increment upwards until all numbers from 11 to 20 are wholly divisible by the current
 			iteration.
 
 		Parameters:	NONE
