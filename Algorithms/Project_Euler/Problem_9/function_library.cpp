@@ -74,7 +74,7 @@ int pythagorean_triplet() {
 		}
 	}
 
-	// check to see if the vecotr has an element
+	// check to see if the vector has an element
 	if (!vec.empty()) {
 		result = vec.at(0);
 		return result;

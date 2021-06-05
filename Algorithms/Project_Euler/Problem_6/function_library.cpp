@@ -4,7 +4,7 @@
 #include "includes.h"
 
 
-int difference(int limit) {
+int difference(const int &limit) {
 	/*
 		- Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 		- Create 2 vectors, 1) sum_of_squares, and 2) square_of_sum

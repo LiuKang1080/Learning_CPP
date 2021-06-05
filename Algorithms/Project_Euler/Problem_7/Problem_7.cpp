@@ -40,7 +40,7 @@ public:
 
 int main() {
 	// Specific solution to Project Euler Problem number 7
-	int limit = 10001;
+	const int limit = 10001;
 	
 	std::cout << "The 10,001st prime number is: \n";
 

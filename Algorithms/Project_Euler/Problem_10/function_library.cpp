@@ -6,7 +6,7 @@
 
 
 // prime number check function
-bool prime_check(int num) {
+bool prime_check(const int &num) {
 	/*
 		- Checks to see if the provided number is a prime number
 
@@ -38,7 +38,7 @@ bool prime_check(int num) {
 
 
 // sum of primes up to a limit
-unsigned long long int prime_sum(int limit) {
+unsigned long long int prime_sum(const int &limit) {
 	/*
 		- We already have a prime number check function from previous problems. We will use the prime_check() function to test
 			if the current number is a prime number.

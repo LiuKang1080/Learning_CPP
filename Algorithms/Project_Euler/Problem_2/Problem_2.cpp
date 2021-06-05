@@ -13,7 +13,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 
 // fibonacci sum function
-int fibonacci(int limit) {
+int fibonacci(const int &limit) {
 	/*
 		parameters:	[int][limit] = The upper limit of the loop.
 		return:		[int][total_sum]
@@ -44,7 +44,7 @@ int fibonacci(int limit) {
 
 int main() {
 	// Specific solution to the Project Euler problem number 2:
-	int limit = 4000000;
+	const int limit = 4000000;
 	std::cout << "Sum of even Fibonacci numbers up to " << limit << ": " << fibonacci(limit) << "\n";
 	
 	return 0;

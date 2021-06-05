@@ -9,7 +9,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 #include <iostream>
 
 
-int multiple(int limit) {
+int multiple(const int &limit) {
 	/*
 		- loop through all of the numbers between 1 and the limit provided
 		- check to see if the number is divisible by 3 or 5. If it is divisible, then add that number to the total
@@ -33,8 +33,10 @@ int multiple(int limit) {
 
 int main() {
 	// Specific solution to the Project Euler problem number 1:
+	int limit = 1000;
+	
 	std::cout << "The sum of all the multiples of 3 and 5 below 1000 is: ";
-	std::cout << multiple(1000) << "\n";
+	std::cout << multiple(limit) << "\n";
 
 	return 0;
 }

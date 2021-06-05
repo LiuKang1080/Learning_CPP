@@ -9,7 +9,7 @@
 
 
 // prime number check function
-bool prime_check(int num) {
+bool prime_check(const int &num) {
 	/*
 		- Checks to see if the provided number is a prime number
 
@@ -39,7 +39,7 @@ bool prime_check(int num) {
 
 
 // prime number term function
-int prime_num_term(int limit) {
+int prime_num_term(const int &limit) {
 	/*
 		- Increment upwards, if the current number is a prime number, then add it to a counter. Once the counter reaches the
 			provided limit, return that number.

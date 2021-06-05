@@ -12,7 +12,7 @@ Find the sum of all the primes below two million.
 
 int main() {
 	// Specific Solution to the Project Euler Problem number 10:
-	int limit = 2000000;
+	const int limit = 2000000;
 
 	std::cout << "The sum of all the primes below " << limit << " is: ";
 	std::cout << prime_sum(limit) << "\n";

@@ -10,7 +10,7 @@
 #include "Method_2.h"
 
 
-int brute_force_method_2(int limit) {
+int brute_force_method_2(const int &limit) {
 	/*
 		- We only need to test the numbers between 11 and 20, rather than 1 to 20. Numbers between 1 - 10 are in some form
 			present from 11 to 20, as in a combination of numbers multiplied from 1 to 10 will result in the numbers from

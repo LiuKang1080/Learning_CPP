@@ -44,7 +44,7 @@ public:
 
 int main() {
 	// Specific solution to the Project Euler Problem number 5:
-	int limit = 20;
+	const int limit = 20;
 	
 	std::cout << "Timer started \n";
 	Timer t;

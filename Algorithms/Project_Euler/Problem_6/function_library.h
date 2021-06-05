@@ -1,4 +1,4 @@
 #pragma once
 
 // function prototype
-int difference(int limit);
+int difference(const int &limit);

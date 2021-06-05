@@ -20,7 +20,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 int main() {
 	// Specific solution to Project Euler Problem number 6:
-	int limit = 100;
+	const int limit = 100;
 
 	std::cout << "The difference between the sum of the squares of the first one hundred natural numbers and the square of the sum is: \n";
 	std::cout << difference(limit) << "\n";

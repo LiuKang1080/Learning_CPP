@@ -23,7 +23,7 @@ NOTES:
 
 
 // largest prime factor function
-int largest_prime(long long int num) {
+int largest_prime(long long int &num) {
 	/*
 		- Finds the largest prime factor of a given number.
 

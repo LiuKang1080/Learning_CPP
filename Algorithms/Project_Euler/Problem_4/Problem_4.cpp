@@ -52,7 +52,7 @@ bool is_palindrome(const std::string &str) {
 }
 
 // result function
-int result(int limit) {
+int result(const int &limit) {
 	/*
 		- Returns the largest integer in a vector. This vector contains plaindrome results.
 
@@ -110,7 +110,7 @@ int result(int limit) {
 
 int main() {
 	// Specific solution to the Project Euler problem number 4:
-	int limit = 1000;
+	const int limit = 1000;
 	std::cout << "The largest palindrome of 2 products up to the Limit: " << limit << " is: " << result(limit) << "\n";
 
 	return 0;
