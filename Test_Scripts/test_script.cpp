@@ -4,23 +4,22 @@
 #include <string>
 
 
+void swap(int &x, int &y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+
 int main() {
-    std::string str {"12345"};
-    auto itr = str.begin();
-    int num = 0;
+    int x = 5;
+    int y = 7;
 
-    while (itr != str.end()) {
-        std::cout << "itr is: " << *itr << " ";
+    std::cout << "Before Swap: X: " << x << " Y: " << y << "\n";
 
-        num = static_cast<int>(*itr) - 48;
-        if (num == 3) {
-            std::cout << "3 is printed.";
-        }
+    swap(x, y);
 
-        itr++;
-
-        std::cout << "\n";
-    }
+    std::cout << "After Swap: X: " << x << " Y: " << y << "\n";
 
     return 0;
 }
