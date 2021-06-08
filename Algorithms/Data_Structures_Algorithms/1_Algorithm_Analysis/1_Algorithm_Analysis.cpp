@@ -81,6 +81,47 @@ Analysis Of An Algorithm:
 
     - Network Consumption:
         - How much data does the algorithm require? Where is the data coming from? Where is the data going?
+
+Time Complexity Analysis:
+    - We will take that each statement in the algorithm takes 1 unit of time.
+
+        void swap(int &x, int &y) {
+            int temp = y;
+            x = y;
+            y = temp;
+        }
+
+    - Here in this example, we have 3 steps. Each of these steps takes 1 unit of time, so in total this algorithm takes 3 units
+        of time.
+    - The Time Function is f_t(n) = 3
+        - This is constant for this algorithm.
+    
+    - Generally the function call itself, and the argument passing in are not considered part of the algorithm analysis.
+    - Regardless of how lengthy a single statement is within the algorithm, we will still consider it to take 1 unit of time.
+    - Complex statements in time analysis will be considered to take 1 unit of time.
+
+        x = (5*3) + (7*9);
+
+    - Here in terms of programming statements we have 2 multiplication statements, 1 addition statement, and 1 assignment
+        statement. In termf of time analysis, this entire statement will be considered to take 1 unit of time. If we needed to
+        further analyze the algorithm at a deeper level, then analyzing statments like this and taking into account each step
+        being equal to 1 unit of time, then we can choose to do so.
+
+Space Complexity Analysis:
+    - For space complexity, we will need to analyze how many variables there are.
+    - How many variables take up space on the stack? How many on the Heap?
+    - What about function calls on the stack?
+    - Are we going to analyze how big the stack is getting? How big the heap is getting?
+
+    - In the swap() example, the sapce complexity is:
+        - x takes up 1 unit of space
+        - y takes up 1 unit of space
+        - temp takes up 1 unit of space
+
+        - total is 3 units of space is taken in this algorithm from a space complexity analysis.
+
+    - If we need to further extend the space complexity analysis, we can look into the function call itself on the stack.
+        Especially for recursive algorithms, it might be important to look at the function calls on the stack / stack unwinding.
 */
 
 
