@@ -2,24 +2,24 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 
-void swap(int &x, int &y) {
-    int temp = x;
-    x = y;
-    y = temp;
+int array_sum(const std::vector<int> &vec) {
+    int total = 0;
+
+    for (int i = 0; i < vec.size(); ++i) {
+        total += vec.at(i);
+    }
+
+    return total;
 }
 
 
 int main() {
-    int x = 5;
-    int y = 7;
+    std::vector<int> my_vec {1, 2, 3, 4, 5};
 
-    std::cout << "Before Swap: X: " << x << " Y: " << y << "\n";
-
-    swap(x, y);
-
-    std::cout << "After Swap: X: " << x << " Y: " << y << "\n";
+    std::cout << array_sum(my_vec) << "\n";
 
     return 0;
 }
