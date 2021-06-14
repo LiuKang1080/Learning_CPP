@@ -82,6 +82,77 @@ Nest For Loop Time Complexity Analysis:
     - n, i, and j all consume 1 space unit: 3
     - Total space units / Space Complexity Function: s(n) = 3n^2 + 3
         - O(n^2)
+
+Time Complexity Analysis of different for loop conditions:
+EX)
+    - we've looked at the general for loop with the loop termination condition being i<n, what about other complex termination
+        statements?
+
+        int p = 0;
+        
+        for (int i = 1; p <= n; ++i) {
+            p = p + i;
+        }
+
+    - Here the loop termination condition is now dependent on p <= n, instead of i.
+    - How do we analyze the time complexity?
+
+    - Write what the values will be on each iteration:
+        - Initial condition:    i=1, p=1
+        - 1st iteration:        i=2, p=3
+        - 2nd iteration:        i=3, p=5
+
+    - i will execute k times, it does NOT execute n times, the value of p will reach <= n BEFORE it runs n times.
+    - The loop only stops when p>n.
+    - what is the structure of p?
+
+        - p = k(k + 1) / 2
+
+    - The loop stops when k(k + 1) / 2 > n
+    - We can look at the highest order in order to look at the time complexity function.
+    - k^2 > n ==> k > sqrt(n) This is the time complexity function. It is of the order O(sqrt(n))
+
+EX)
+
+        for (int i = 1; i < n; i = i * 2) {
+            statement;
+        }
+
+        - initial condition     i=1
+        - 1st iteration         i=1*2       = 2
+        - 2nd iteration         i=2*2       = 2^2
+        - 3rd iteration         i=2^2 *2    = 2^3
+
+    - The pattern is 2^k times.
+    - We know that this loop terminates when i>n. What is i? i is 2^k
+    - So we can assume that when 2^k > n is our condition
+    - We need to isolate k by itself
+
+    - k = log_2(n) This is our time complexity function. O(log(n))
+
+Time Complexity Analysis Summary:
+    - Source: 1.5.2 Time Complexity Example #2 (https://www.youtube.com/watch?v=9SgLBjXqwd4)
+
+        - for (int i = 0; i < n; i++)       ==> O(n)
+        - for (int i = 0; i < n; i = i + 2) ==> n/2 ==> O(n)
+        - for (int i = n; i > 1; i--)       ==> O(n)
+        - for (int i = 1; i < n; i = i * 2) ==> O(log_2(n))
+        - for (int i = 1; i < n; i = i * 3) ==> O(log_3(n))
+        - for (int i = n; i > 1; i = i / 2) ==> O(log_2(n))
+
+Time Complexity Analysis of While Loops
+    - While loops differ from for loops since it is solely based on the condition
+
+        while (condition == true) {
+            statement;
+        }
+
+    - This loop will run as long as condition is equal to true, we need to look at how the condition changes, and see how many
+        steps it takes in order to stop.
+
+
+
+
 */
 
 
