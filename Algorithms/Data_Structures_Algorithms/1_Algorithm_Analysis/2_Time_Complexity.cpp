@@ -39,7 +39,7 @@ Frequency Count Method:
     - vec takes up n spaces, total takes 1 space, i takes 1 space, vec.size() in the for loop will also be computed; this will
         take up 1 space. The total space all of these variables take is n + 3. This space complexity function is s(n) = n + 3.
 
-Nest For Loop Time Complexity Analysis:
+Nested For Loop Time Complexity Analysis:
     - We looked at a single for loop, we will now look at the time complexity and get the time function for nested for loops:
     - A function that adds 2 matricies: Matrix a and b are square matricies of dimensions n x n.
 
@@ -83,8 +83,8 @@ Nest For Loop Time Complexity Analysis:
     - Total space units / Space Complexity Function: s(n) = 3n^2 + 3
         - O(n^2)
 
-Time Complexity Analysis of different for loop conditions:
-EX)
+Time Complexity Analysis of Different For Loop Conditions:
+Ex)
     - we've looked at the general for loop with the loop termination condition being i<n, what about other complex termination
         statements?
 
@@ -112,7 +112,7 @@ EX)
     - We can look at the highest order in order to look at the time complexity function.
     - k^2 > n ==> k > sqrt(n) This is the time complexity function. It is of the order O(sqrt(n))
 
-EX)
+Ex)
 
         for (int i = 1; i < n; i = i * 2) {
             statement;
@@ -140,7 +140,7 @@ Time Complexity Analysis Summary:
         - for (int i = 1; i < n; i = i * 3) ==> O(log_3(n))
         - for (int i = n; i > 1; i = i / 2) ==> O(log_2(n))
 
-Time Complexity Analysis of While Loops
+Time Complexity Analysis of While Loops:
     - While loops differ from for loops since it is solely based on the condition
 
         while (condition == true) {
@@ -149,10 +149,66 @@ Time Complexity Analysis of While Loops
 
     - This loop will run as long as condition is equal to true, we need to look at how the condition changes, and see how many
         steps it takes in order to stop.
+    - In order to get the Time Complexity function, we need to manually see how many times the loop will run
 
+Ex)
 
+        int i = 0;
 
+        while (i < n) {
+            statement;
+            i++;
+        }
 
+    - We can assume here in this example that n = 10
+    - statement and i++ each take n units of time
+    - while (i < n) takes n + 1 units of time
+    - int i = 0 take 1 unit of time
+    - f(n) = 3n + 2, O(n)
+
+    - In for loops, we have 2n + 1 as our total units of time. In Time Complexity Analysis we're not interested in the exact
+        detail, we're interested in the highest order since that is the biggest determining factor.
+
+Ex)
+
+        int a = 1;
+
+        while (a < b) {
+            statement;
+            a = a * 2;
+        }
+
+    - In the first iteration a = 1, then 2, then 4, then 8. The pattern here is 2^k
+    - The loop will terminate when a >= b, since a = 2^k, so then 2^k >= b ==> 2^k = b. We now find k
+    - k = log_2(b). The Order is O(log_2(n))
+
+Ex)
+
+        int i = 1;
+        int k = 1;
+
+        while (k < n) {
+            statement;
+            k = k + i;
+            i++;
+        }
+
+    - Here in this example, k is being incremented by i, while i increments by 1 on each iteration.
+    - what is the pattern for i and k?
+    - how many times does this run? We don't know, let's say that it runs m times.
+    - what is the pattern for i? it runs m times.
+    - what is the pattern for k? first iteration 1+1, then 2+2, then 2+2+3, then 2+2+3+4
+        The pattern for k is m (m + 1) / 2
+
+    - We can assume that the loop stops when k >= n. We know what k is, we substitute in k.
+        We only need to take the highest order, in k it will be m^2. Now we can equate it to n. m^2 = n
+        m = sqrt(n)
+    - The time complexity function for this is O(sqrt(n))
+
+Time Compelxity Analysis of if statements
+    - If the condition is met it will execute once. The minimum order is O(1).
+    - If the if statement contains for loops or while loops within it, then we need to do further analysis.
+    - The Loops within the if statement needs to be analyzed, and added onto to the if-else statement time complexity.
 */
 
 
