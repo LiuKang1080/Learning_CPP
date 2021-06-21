@@ -209,6 +209,9 @@ Time Compelxity Analysis of if statements
     - If the condition is met it will execute once. The minimum order is O(1).
     - If the if statement contains for loops or while loops within it, then we need to do further analysis.
     - The Loops within the if statement needs to be analyzed, and added onto to the if-else statement time complexity.
+
+Summary of general Time Complexity:
+    - 1 < log_n < sqrt(n) < n < n log_n < n^2 < n^3 < ... < 2^n < 3^n < ... < n! < n^n
 */
 
 
