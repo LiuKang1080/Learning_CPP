@@ -55,7 +55,7 @@ Ex)
         still remaining in the upper bound.
     - Omega Notation is the closest to Theta while still remaining in the lower bound!
 
-    - These Notations are just a representation of complexity function. DO NOT mix them the Best case scenario or the Worst 
+    - These Notations are just a representation of a complexity function. DO NOT mix them the Best case scenario or the Worst 
         Case scenario! They are NOT the same! We can use any notion for the best or worst case. These ideas are NOT the same.
 */
 
