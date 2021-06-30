@@ -57,6 +57,59 @@ Ex)
 
     - These Notations are just a representation of a complexity function. DO NOT mix them the Best case scenario or the Worst 
         Case scenario! They are NOT the same! We can use any notion for the best or worst case. These ideas are NOT the same.
+
+Ex)
+
+        f(n) = n^2 log(n) + n
+
+    - We set up the functions that are less than and greater than f(n):
+
+        n^2 log(n) <= n^2 log(n) + n <= 2n^2 log(n) 
+
+    - We see that Big O the upper bound, is n^2log(n), Omega which is the lower bound is also n^2log(n). Theta which is the average is also
+        n^2log(n)
+    - Where does n^2log(n) belong on the time complexity chart? We can see that the n^2 term is the most dominating term, this
+        means that n^2log(n) is greater than n^2, but less than n^3.
+
+Ex) 
+
+        f(n) = n!
+
+    - Here n factorial is defined as:
+
+        n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1
+
+    - We start by taking the upper and lower bounds by creating functions that are less than and greater than f(n)
+
+        1x1x1 ... x1 <= 1x2x3x...xn <= nxnxnx...xn
+
+    - the left side is a constant number that multiples by the same constant number, n times. The right side is n times n, n
+        number of times. We can reduce these functions:
+
+        1 <= n! <= n^n
+
+    - Big O which is the upper bound
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */
 
 
