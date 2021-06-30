@@ -88,28 +88,17 @@ Ex)
 
         1 <= n! <= n^n
 
-    - Big O which is the upper bound
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - Big O which is the upper bound is n^n. Omega, which is the lower bound is 1. What is the average in this case? Theta cannot
+        be definied. For lower numbers of n it will be very low in the time complexity graph, but for larger numbers of n, it
+        will be much higher on the time complexity graph.
+    - The upper bound of f(n) = n! is n^n, and the lower bound is 1.
+    - Since we cannot define Theta, looking at the upper bound or the lower bound depending on the algorithm analysis, will be
+        more important.
+    - If Theta is present and definied, then we generally use Theta. If Theta is not definied / present, then we must rely on the
+        upper bound (Big O), or the lower bound (Omega).
+    - When we're just presented with O(n^2), are we as close as we can be to g(n)? When we are only given Omega(n^2), are we the
+        closest we can be to g(n)? Are the upper and lower bounds as close as they can be? This is why Theta is more important than
+        the upper and lower bounds.
 */
 
 
