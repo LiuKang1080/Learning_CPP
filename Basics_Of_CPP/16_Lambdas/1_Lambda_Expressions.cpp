@@ -78,6 +78,66 @@ Lambda Expression Example:
     - We don't need the template class or the function objects. The behavior is the same, but it is inline directly into the
         for_each() function.
     - The compiler can efficently optimize with lambdas, increasing speed.
+
+Lambda Syntax:
+    - General Syntax:
+
+        [] () ->return_type specifiers {};
+
+        - [] = Capture List: This is the capture list, this defines the start of the lambda. Allows us to capture the context or
+            the closure the lambda expression executes. We will look at this when we cover Stateful Lambda Expressions. Capture
+            lists tells what elements to capture, and we can specify if it will be by value or by reference.
+
+        - () = Parameter List: Comma seperated list of parameters. This is like the parameter list in functions.
+
+        - ->return_type = Like function return types, this tells us the data type of the return from the lambda expression. This
+            is optional. The return type can be omitted, and if it is the compiler will try and deduce what the return type is 
+            automatically.
+
+        - specifiers = Optional specifiers, there are 2 specifiers: mutable, and constexpr. We will look at mutable later on, and
+            will cover constexpr later.
+
+        - {} = Body. This is where our code goes!
+
+Example:
+    - Simple lambda expression:
+
+        [](){ std::cout << "Hello World"; };
+
+    - How can we use this lambda? We can do: 
+    
+        [](){ std::cout << "Hello World"; } (); 
+
+    - Notice the extra () at the end. This is the function call operator, this will instantiate a function object using the
+        overloaded function call operator. Typically we don't see lambdas written this way with the () at the end.
+
+Ex)
+
+        [](int x) { std::cout << x; };
+
+        [](int x, int y) { std::cout << x + y; };
+
+    - We can also assign lmabdas to variables:
+
+        auto L = []() { std::cout << "Hellow World"; };
+        L();        // displays Hello World
+
+        auto L = [](int x) { std::cout << x; };
+        L(10);      // displays 10
+        L(100);     // displays 100
+
+Returning Values From Lambdas:
+    
+        auto L = [](int x, int y) ->int { return x + y; };
+
+    - Here the ->int is optional, we can have:
+
+        auto L = [](int x, int y) { return x + y; };
+        std::cout << L(2, 3);       // displays 5
+        std::cout << L(10, 20);     // displays 30
+
+    - All of the above examples above are ALL stateless lambda expressions. They ALL have empty capture lists. We will look at
+        capture lists, and stateful lmabda expressions next.
 */
 
 
