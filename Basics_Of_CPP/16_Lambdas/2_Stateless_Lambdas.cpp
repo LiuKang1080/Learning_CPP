@@ -129,6 +129,30 @@ Return a Lambda From a Function:
     - bool(*predicate)(int) is the lambda to be passed in.
     - [](auto x) { return x % 2 != 0; } is the actual lambda argument.
     - If the lambda returns true and under that condition it will print in the if statement within the for loop.
+
+Ex)
+
+        void filter_vector(const std::vector<int> &vec, std::function<bool(int)> func) {
+            // function takes in a vector passed in by reference.
+            // function takes in function object, the function object takes in an int, and returns a bool. This is the predicate.
+            // what does the func do? We don't know until we pass in a function, the func depends on what function is passed in.
+        
+            // loop through the vector
+            for (int i: vec) {
+                if (func(i)) {
+                    std::cout << i << " ";
+                }
+            }
+        }
+
+        std::vector<int> nums {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
+        // pass in nums, and a function object. Remember that a lambda IS a function object
+        filter_vector(nums, [](int x) { return x > 50; });
+
+        filter_vector(nums, [](int x) { return x <= 30; });
+
+        filter_vector(nums, [](int x) { return x >= 30 && x <= 60; });
 */
 
 
