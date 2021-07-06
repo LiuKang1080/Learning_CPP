@@ -123,7 +123,7 @@ Return a Lambda From a Function:
             std::vector<int> nums {1, 2, 3};
 
             print_if(nums, [](auto x) { return x % 2 == 0; });      // displays evens
-            print_if(nums, [](auto x) { return x % 2 != 0; });      // displays odss
+            print_if(nums, [](auto x) { return x % 2 != 0; });      // displays odds
         }
 
     - bool(*predicate)(int) is the lambda to be passed in.
