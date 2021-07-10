@@ -144,6 +144,8 @@ void lambda_example() {
     - The second time we call the lambda, we increase x again getting the result 300!
         - The x that is saved in WITHIN the lambda still exists! Remember the closure class that gets created behind the scenes,
             that captured value gets stored within the class, and persists UNTIL we leave the entire function.
+
+    - The only time we capture is when the lambda class constructor gets called, this only happens once!
 */
 }
 
