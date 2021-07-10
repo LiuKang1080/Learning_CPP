@@ -112,7 +112,45 @@ Defualt Captures:
 #include <iostream>
 
 
+void lambda_example() {
+    int x = 100;
+
+    // create the lambda, this is a stateful lmabda, captures x
+    auto L = [x]() mutable {
+        std::cout << "========== \n";
+        std::cout << "Captured value x is: " << x << "\n";
+
+        x += 100;
+        std::cout << "Within the Lambda, x: ";
+        std::cout << x << "\n";
+    };
+
+    // call the lambda
+    L();
+    // print x
+    std::cout << "Outside the Lambda, x: " << x << "\n";
+    // call the lambda again
+    L();
+    // print x again
+    std::cout << "Outside the Lambda, x: " << x << "\n";
+
+/*
+    - Pay attention to when we define the lambda, and when we call it!
+    - We define it ONCE, but CALL the lambda twice!
+
+    - We capture x, and since we have the mutable keyword we can change the captured value.
+    - The first time we call the lambda, we increase it by 100.
+    - We print x outside the lambda, and we get the result we expect, it is 100
+    - The second time we call the lambda, we increase x again getting the result 300!
+        - The x that is saved in WITHIN the lambda still exists! Remember the closure class that gets created behind the scenes,
+            that captured value gets stored within the class, and persists UNTIL we leave the entire function.
+*/
+}
+
+
 int main() {
+    // call the lambda example function
+    lambda_example();
 
     return 0;
 }
