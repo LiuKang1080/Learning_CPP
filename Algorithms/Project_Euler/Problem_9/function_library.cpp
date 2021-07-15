@@ -1,4 +1,4 @@
-// Function Libarary / Function Definitions
+// Function Library / Function Definitions
 
 /*
 
