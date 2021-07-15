@@ -17,7 +17,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 #include "function_library.h"
 
 
-int longest_collatz_chain(int const &upper_limit) {
+int longest_collatz_chain(const int &upper_limit) {
 	/*
 		Parameters:	[int][upper_limit] = The upper limit. For Project Euler Problem #14 the upper_limit is 1 million.
 					[int][range] = The range of numbers starting from the upper_limit, and moving downwards.
@@ -110,7 +110,7 @@ std::vector<int> collatz_sequence_generator(long long int num) {
 
 
 // print the contents of a vector
-void print_collatz_sequence(std::vector<int> const &collatz_sequence) {
+void print_collatz_sequence(const std::vector<int> &collatz_sequence) {
 	/*
 		Parameters:	[std::vector<int>][collatz_sequence] - A vector that contains the Collatz Sequence.
 		Return:		[void]
