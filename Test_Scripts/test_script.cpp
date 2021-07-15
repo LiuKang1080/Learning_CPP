@@ -17,9 +17,11 @@ int array_sum(const std::vector<int> &vec) {
 
 
 int main() {
-    std::vector<int> my_vec {1, 2, 3, 4, 5};
+    /*std::vector<int> my_vec {1, 2, 3, 4, 5};
+    std::cout << array_sum(my_vec) << "\n";*/
 
-    std::cout << array_sum(my_vec) << "\n";
-
+    // create variable to store very large number from the boost::multipercision library
+    // use for loop to get the result of 100!
+    
     return 0;
 }

@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Test_Scripts",
+      "appliesTo": "Test_Scripts/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-test_script",
+      "appliesTo": "Test_Scripts/test_script.cpp",
+      "type": "launch"
+    }
+  ]
+}
