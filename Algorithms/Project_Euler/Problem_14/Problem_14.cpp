@@ -20,12 +20,18 @@ longest chain? NOTE: Once the chain starts the terms are allowed to go above one
 
 
 int main() {
+	// Collatz Sequence Testing:
+	int starting_num = 50;
+
+	std::cout << "The Collatz Sequence for " << starting_num << ": ";
+	print_collatz_sequence(collatz_sequence_generator(starting_num));
+
 	// Specific solution to Project Euler Problem number 14:
-	int upper_limit = 1000000;
+	/*int upper_limit = 1000000;
 
 	std::cout << "The Upper Limit is: " << upper_limit << "\n";
 	std::cout << "The largest number that produces the longest Collatz Sequence within this range is: ";
-	std::cout << longest_collatz_chain(upper_limit);
+	std::cout << longest_collatz_chain(upper_limit);*/
 
 	return 0;
 }

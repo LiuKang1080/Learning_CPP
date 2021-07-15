@@ -73,3 +73,56 @@ int longest_collatz_chain(int const &upper_limit) {
 	// return the number that produces the largest collatz sequence. Return largest_number.
 	return largest_number;
 }
+
+
+// Algorithm that creates the Collatz Sequence given a starting number 
+std::vector<int> collatz_sequence_generator(long long int num) {
+	/*
+		Parameters:	[int][num] - The starting point of the Collatz Sequence.
+		Return:		[std::vector<int>][collatz_sequence] - The full vector that contains the Collatz Sequence.
+
+		- If the number is even : n -> n/2
+		- If the number is odd	: n -> 3n + 1
+	*/
+
+	// create varaibles:
+	std::vector<int> collatz_sequence{};
+
+	// add the first number into the sequence
+	collatz_sequence.push_back(num);
+
+	// use a while loop to create the Collatz Sequence:
+	while (num > 1) {
+		// check to see if current_num is even or not:
+		if (num % 2 == 0) {
+			num = num / 2;
+			collatz_sequence.push_back(num);
+		}
+		else {
+			num = (3 * num) + 1;
+			collatz_sequence.push_back(num);
+		}
+	}
+
+	// return the vector:
+	return collatz_sequence;
+}
+
+
+// print the contents of a vector
+void print_collatz_sequence(std::vector<int> const &collatz_sequence) {
+	/*
+		Parameters:	[std::vector<int>][collatz_sequence] - A vector that contains the Collatz Sequence.
+		Return:		[void]
+	*/
+
+	// print the size of the vector
+	std::cout << "This Sequence contains " << collatz_sequence.size() << " terms. \n";
+
+	std::cout << "(";
+	// use a for loop that prints all of the elements in the collatz_sequence vector:
+	for (auto i: collatz_sequence) {
+		std::cout << i << ", ";
+	}
+	std::cout << ") \n";
+}
