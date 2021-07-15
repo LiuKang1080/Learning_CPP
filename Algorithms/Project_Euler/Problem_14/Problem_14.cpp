@@ -29,7 +29,7 @@ int main() {
 	int upper_limit = 1000000;
 	std::cout << "The Upper Limit is: " << upper_limit << "\n";
 	std::cout << "The largest number that produces the longest Collatz Sequence within this range is: ";
-	std::cout << longest_collatz_chain(upper_limit);
-
+	std::cout << longest_collatz_chain(upper_limit) << "\n";
+	
 	return 0;
 }
