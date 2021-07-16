@@ -76,7 +76,7 @@ int longest_collatz_chain(const int &upper_limit) {
 
 
 // Algorithm that creates the Collatz Sequence given a starting number 
-std::vector<int> collatz_sequence_generator(long long int num) {
+std::vector<int> collatz_sequence_generator(unsigned long long int num) {
 	/*
 		Parameters:	[int][num] - The starting point of the Collatz Sequence.
 		Return:		[std::vector<int>][collatz_sequence] - The full vector that contains the Collatz Sequence.
@@ -86,7 +86,7 @@ std::vector<int> collatz_sequence_generator(long long int num) {
 	*/
 
 	// create varaibles:
-	std::vector<int> collatz_sequence{};
+	std::vector<int> collatz_sequence {};
 
 	// add the first number into the sequence
 	collatz_sequence.push_back(num);
@@ -97,14 +97,12 @@ std::vector<int> collatz_sequence_generator(long long int num) {
 		if (num % 2 == 0) {
 			num = num / 2;
 			collatz_sequence.push_back(num);
-		}
-		else {
+		} else {
 			num = (3 * num) + 1;
 			collatz_sequence.push_back(num);
 		}
 	}
 
-	// return the vector:
 	return collatz_sequence;
 }
 

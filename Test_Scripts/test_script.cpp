@@ -1,27 +1,30 @@
 // Test Script
 
+
 #include <iostream>
-#include <string>
 #include <vector>
 
 
-int array_sum(const std::vector<int> &vec) {
-    int total = 0;
+std::vector<int> create_vector(int num) {
+    std::vector<int> vec1 {};
 
-    for (int i = 0; i < vec.size(); ++i) {
-        total += vec.at(i);
+    for (int i = 1; i <= num; i++) {
+        vec1.push_back(i);
     }
 
-    return total;
+    return vec1;
+}
+
+void print_vector(const std::vector<int> &vec1) {
+    for (auto i: vec1) {
+        std::cout << i << " ";
+    }
 }
 
 
 int main() {
-    /*std::vector<int> my_vec {1, 2, 3, 4, 5};
-    std::cout << array_sum(my_vec) << "\n";*/
+    // vector tests:
+    print_vector(create_vector(15));    
 
-    // create variable to store very large number from the boost::multipercision library
-    // use for loop to get the result of 100!
-    
     return 0;
 }
