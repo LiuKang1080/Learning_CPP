@@ -109,13 +109,14 @@ void plot_sequence(const std::vector<int> &collatz_sequence, int collatz_number)
 
 	// create the plot object:
 	Plot plot;
+	plot.palette("rdgy");
 
 	// We will use drawCurveWithPoints, this takes in the x and y vectors.
 	// place labels:
 	plot.xlabel("Range");
 	plot.ylabel("Collatz Numbers");
 
-	plot.drawCurveWithPoints(x, y).label("Collatz Sequence of " + string_collatz);
+	plot.drawCurveWithPoints(x, y).label("Collatz Sequence #" + string_collatz);
 	
 	// save the plot in .PDF format
 	plot.save("Collatz_Sequence_" + string_collatz + ".pdf");

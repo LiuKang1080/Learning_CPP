@@ -21,8 +21,8 @@ Sequence for that number.
 
 
 int main() {
-	// Collatz Sequence of 13:
-	int collatz_number = 13;
+	// Graphing Collatz Sequences. Start at 5, numbers below 5 easily converge back to 1, and loop.
+	int collatz_number = 5;
 	plot_sequence(collatz_sequence_generator(collatz_number), collatz_number);
 
 	return 0;
