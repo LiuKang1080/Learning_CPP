@@ -22,7 +22,9 @@ Sequence for that number.
 
 int main() {
 	// Graphing Collatz Sequences. Start at 5, numbers below 5 easily converge back to 1, and loop.
-	int collatz_number = 5;
+	/*int collatz_number = 5;*/
+	int collatz_number = 837799;
+
 	plot_sequence(collatz_sequence_generator(collatz_number), collatz_number);
 
 	return 0;

@@ -14,7 +14,7 @@ Ex) Starting with 13: 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
 
 
 // collatz sequence generator
-std::vector<int> collatz_sequence_generator(unsigned long long int num) {
+std::vector<unsigned long long int> collatz_sequence_generator(unsigned long long int num) {
 	/*
 		Parameters:	[unsigned long long int][num] - The starting point of the Collatz Sequence.
 		Return:		[std::vector<int>][collatz_sequence] - The full vector that contains the Collatz Sequence.
@@ -26,7 +26,7 @@ std::vector<int> collatz_sequence_generator(unsigned long long int num) {
 	*/
 
 	// create varaibles:
-	std::vector<int> collatz_sequence {};
+	std::vector<unsigned long long int> collatz_sequence {};
 
 	// add the first number into the sequence
 	collatz_sequence.push_back(num);
@@ -48,7 +48,8 @@ std::vector<int> collatz_sequence_generator(unsigned long long int num) {
 
 
 // get the size of the vector that has the collatz sequence for that specific number
-std::vector<int> range_vector(const std::vector<int> &collatz_sequence) {
+template <typename T>
+std::vector<int> range_vector(const std::vector<T> &collatz_sequence) {
 	/*
 		Parameters:	[std::vector<int>][&collatz_sequence] - The full vector that contains the whole Collatz Sequence.
 		Return:		[std::vector<int>][range_vector] - A vector containing the range from 1 to the size of collatz_sequence.
@@ -70,7 +71,8 @@ std::vector<int> range_vector(const std::vector<int> &collatz_sequence) {
 
 
 // convert elements from a vector to a valarray
-std::valarray<double> convert_vector_valarray(const std::vector<int> &vec) {
+template <typename T>
+std::valarray<double> convert_vector_valarray(const std::vector<T> &vec) {
 	/*
 		Parameters:	[const std::vector<int>][&vec] - Vector. Pass by reference
 		Return:		[std::valarray<double>][] - Valarray 
@@ -89,11 +91,11 @@ std::valarray<double> convert_vector_valarray(const std::vector<int> &vec) {
 
 
 // plot the Collatz Sequence
-void plot_sequence(const std::vector<int> &collatz_sequence, int collatz_number) {
+void plot_sequence(const std::vector<unsigned long long int> &collatz_sequence, int collatz_number) {
 	/*
 		Parameters:	
-			[const int][&range_vector] - Vector that contains the range from 1 to the size of collatz_sequence. This is the x axis.
-			[std::vector<int>][&collatz_sequence] - The vector that contains the full Collatz Sequence. This is the y axis.
+			[const std::vector<int>][&collatz_sequence] - This is the full Collatz Sequence.
+			[int][collatz_number] - This is the starting number.
 		
 		Return: [void]
 	*/
@@ -116,7 +118,7 @@ void plot_sequence(const std::vector<int> &collatz_sequence, int collatz_number)
 	plot.xlabel("Range");
 	plot.ylabel("Collatz Numbers");
 
-	plot.drawCurveWithPoints(x, y).label("Collatz Sequence #" + string_collatz);
+	plot.drawCurve(x, y).label("Collatz Sequence #" + string_collatz);
 	
 	// save the plot in .PDF format
 	plot.save("Collatz_Sequence_" + string_collatz + ".pdf");
