@@ -11,7 +11,7 @@ The one hundred 50-digit numbers are stored in the text file "100_numbers.txt".
 #include "function_library.h"
 
 
-void find_large_sum(const std::string file_name) {
+void find_large_sum(const std::string &file_name) {
 	/*
 		Parameters: [std::string][const file_name] - The name of the file that we will use to store the one hundred 50-digit long numbers.
 		Return:		[void]
