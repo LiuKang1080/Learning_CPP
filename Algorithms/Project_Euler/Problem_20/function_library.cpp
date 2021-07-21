@@ -19,7 +19,7 @@ Find the sum of the digits in the number 100!
 
 
 template <typename T>
-std::string stringstream_cast(const T& num) {
+std::string stringstream_cast(const T &num) {
 	/*
 		Parameters: [const <template> T][& num] - Takes in a number and converts that number into a string.
 		Return:		[std::string][] - We will return the string 100!
@@ -58,7 +58,7 @@ std::string compute_factorial(int base) {
 }
 
 
-unsigned long long int compute_addition_string(const std::string& large_num) {
+unsigned long long int compute_addition_string(const std::string &large_num) {
 	/*
 		Parameters:	[const std::string][& large_num] - The large number in string form.
 		Return:		[unsigned long long int][result] - This is the addition of each of the individual numbers of the string.

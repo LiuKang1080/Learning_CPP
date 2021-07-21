@@ -15,6 +15,12 @@ Find the sum of the digits in the number 100!
 
 
 int main() {
+	// Project Euler - Problem #20
+	int base = 100;
+	unsigned long long int result = compute_addition_string(compute_factorial(base));
+
+	std::cout << "The sum of the digits of the number 100! is: ";
+	std::cout << result << "\n";
 
 	return 0;
 }
