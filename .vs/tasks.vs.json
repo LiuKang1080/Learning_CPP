@@ -10,6 +10,11 @@
       "taskLabel": "task-test_script",
       "appliesTo": "Test_Scripts/test_script.cpp",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-OpenGL",
+      "appliesTo": "Graphics/OpenGL/",
+      "type": "launch"
     }
   ]
 }
