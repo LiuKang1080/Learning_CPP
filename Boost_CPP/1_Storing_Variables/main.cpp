@@ -15,6 +15,13 @@ When to use the C++ Boost library?
 	- The Boost libraries won't get outdated since more and more boost libraries are becoming part of the C++ standard.
 	- We use the Boost libraries when we want to extend the C++ standard.
 
+We will cover:
+	1) Return an Array from a function, and the boost::array library.
+		- This will make it easier to work with arrays compared to vanilla C++ arrays. The STL array is better compared to the vanilla
+			C++ array, but boost::array will expand that even further.
+
+	2) C++11 and C++14 algorithms. 
+		- We will cover some boost algorithms and how they compare with the C++ standards.
 */
 
 
