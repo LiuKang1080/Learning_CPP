@@ -72,18 +72,45 @@ We will start with Managing Local Pointers to classes that do no leave Scope:
 	- Now there is no chance that the resource leak will occur and the code is much cleaner.
 	- boost::scoped_ptr<T> are typical RAII classes. When an exception is thrown or when a variable goes out scope, the stack is
 		unwound and the destructor is called.
+	- The destructor for unique_ptr<T> and scoped_ptr<T> call delete for a pointer that they store. Since both of these classes
+		call delete by default it is safe to hold derived classes by a pointer to the base class IF the destructor of the base
+		class is virtual.
+	- Ex)
 
+		#include <iostream>
+		#include <string>
 
+		struct Base {
+			virtual ~base() {}
+		};
 
+		class Derived: public Base {
+			std::string str_;
 
+		public:
+			explicit derived(const char *str)
+				: str_(str)
+			{}
 
+			~derived()	// override {
+				std::cout << "str == " << str << "\n";
+			}
+		};
 
+		void base_and_derived() {
+			const boost::movelib::unique_ptr<Base> ptr1(
+				boost::movelib::make_unique<Derived>("unique_ptr")
+			);
 
+			const boost::scoped_ptr<Base> ptr2(
+				new Derived("scoped_ptr)
+			)
+		}
 
-
-
-
-
+	- Running the base_and_derived function will output:
+		
+		str == scoped_ptr
+		str == unique_ptr
 */
 
 
