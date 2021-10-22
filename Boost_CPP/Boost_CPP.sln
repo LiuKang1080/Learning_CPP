@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1_Basics", "1_Storing_Variables\1_Storing_Variables.vcxproj", "{5402BAE6-EE16-4300-950A-4754B532EFFC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.0_Basics", "1_Storing_Variables\1_Storing_Variables.vcxproj", "{5402BAE6-EE16-4300-950A-4754B532EFFC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.1_Basic_Boost_Algorithms", "1.1_Basic_Boost_Algorithms\1.1_Basic_Boost_Algorithms.vcxproj", "{F97C811B-0451-4278-A656-B6512442AD3D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2_Managing_Resources", "2_Managing_Resources\2_Managing_Resources.vcxproj", "{2651A1B0-E89A-453E-8947-21674BAC0801}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.0_Managing_Resources", "2_Managing_Resources\2_Managing_Resources.vcxproj", "{2651A1B0-E89A-453E-8947-21674BAC0801}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.1_Managing_Array_Pointer", "2.1_Managing_Array_Pointer\2.1_Managing_Array_Pointer.vcxproj", "{9374F1DF-34B9-4D1D-9DD3-2441097D3DCD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3.0_String_To_Numbers", "3.0_String_To_Numbers\3.0_String_To_Numbers.vcxproj", "{677B6A5F-6797-4970-B772-04E9F3B11969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{9374F1DF-34B9-4D1D-9DD3-2441097D3DCD}.Release|x64.Build.0 = Release|x64
 		{9374F1DF-34B9-4D1D-9DD3-2441097D3DCD}.Release|x86.ActiveCfg = Release|Win32
 		{9374F1DF-34B9-4D1D-9DD3-2441097D3DCD}.Release|x86.Build.0 = Release|Win32
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Debug|x64.ActiveCfg = Debug|x64
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Debug|x64.Build.0 = Debug|x64
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Debug|x86.ActiveCfg = Debug|Win32
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Debug|x86.Build.0 = Debug|Win32
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Release|x64.ActiveCfg = Release|x64
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Release|x64.Build.0 = Release|x64
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Release|x86.ActiveCfg = Release|Win32
+		{677B6A5F-6797-4970-B772-04E9F3B11969}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
