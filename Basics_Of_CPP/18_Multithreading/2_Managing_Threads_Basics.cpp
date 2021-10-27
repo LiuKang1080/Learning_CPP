@@ -113,7 +113,14 @@ Decide What To Do Next:
         that the thread has completed execution before the function exits by joining with the thread!
 
 Waiting For The Thread To Finish:
-    - 
+    - We can call the join() function if we need to wait for a thread to complete on the associated std::thread object.
+    - In the example above, we can replace my_thread.detach() with my_thread.join(). This would wait for the thread to run before
+        all of the local variables are destroyed.
+    - .join() is a simple brtue-force method, either wait for the thread to finish or don't.
+    - .join() also cleans up any storage associated with the thread, so the std::thread object is no longer associated with the
+        now finished thread. It is no longer associated with any thread.
+    - This means that you can only call .join() ONCE for a given thread!
+    - Once we've called .join() on an std::thread object it is no longer joinable, and joinable() will return false.
 */
 
 
