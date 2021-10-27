@@ -121,6 +121,43 @@ Waiting For The Thread To Finish:
         now finished thread. It is no longer associated with any thread.
     - This means that you can only call .join() ONCE for a given thread!
     - Once we've called .join() on an std::thread object it is no longer joinable, and joinable() will return false.
+
+Running Threads In the Background:
+    - Calling detach() on an std::thread object leaves the thread to run in the background, with no direct means of communicating
+        with it. It is no longer possible to wait for the thread to complete. 
+    - If a thread becomes detached, it isn't possible to obtain a std::thread object that references it, so it can no longer be
+        joined.
+    - Detached threads truly run in the background; ownership and control are passed over to the C++ runtime library, which
+        ensures that the resources associated with the thread are correctly reclaimed when the thread exits.
+    - Detached threads are called daemon threads. This is coming over from UNIX. Typically these type of threads are very long
+        running, and are almost the entire lifetime of the application.
+
+        std::thread t(do_background_work);
+        t.detach();
+        assert(!t.joinable());
+        // this should return true
+
+    - In order to detach a thread, there must be a thread to detach from. We cannot call detach() (OR .join() for that matter) on
+        an std::thread object with no associated thread.
+
+    - A good example to use detach is: A word document writing about books, and we create another thread that opens another
+        instance of word.docx in which we can write about movies.
+
+        void edit_document(std::string const &file_name) {
+            open_document_and _display_gui(file_name);
+
+            while(!done_editing()) {
+                user_command cmd = get_user_input();
+
+                if (cmd.type == open_new_document) {
+                    std::string const new_name = get_file_name_from_user();
+                    std::thread t(edit_document, new_name);
+                    t.detach();
+                } else {
+                    process_user_input(cmd);
+                }
+            }
+        }
 */
 
 
