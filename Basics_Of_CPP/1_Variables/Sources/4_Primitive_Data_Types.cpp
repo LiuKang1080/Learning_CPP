@@ -65,6 +65,11 @@
 int main() {
     // we will get an overflow if we only use a long int, we need to use a long long int
     // pay attention to compiler warnings in case overflows happen.
+    
+    // we cannot use commas to seperate the numbers due to compiler errors, instead to write numbers like we write them in real
+    // life, we can instead use the apostrophe to write large numbers. Look at the example below: We can write 9,999,999,999 but
+    // with apostrophes and the compiler will treat is as the full number. We can make reading large numbers easier using this
+    // method.
     long long int my_num = 9'999'999'999;
     std::cout << "Large Integer is: " << my_num << "\n";
 
