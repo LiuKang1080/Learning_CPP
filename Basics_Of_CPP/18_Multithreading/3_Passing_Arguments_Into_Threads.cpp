@@ -59,6 +59,7 @@ int main() {
     // pass the argument my_string INTO the function print_string that accepts an std::string as its first argument.
     // Since the print_string function accepts the string by reference we must wrap the argument in std::ref().
     std::thread t(print_string, std::ref(my_string));
+    
     // bind the thread into the main function, and wait for the thread to complete running.
     t.join();
 
