@@ -96,7 +96,7 @@ Waiting For A Condition with Condition Variables:
         variable is notified by a call to notify_one() from the data-preperation thread, the thread wakes from its slumber 
         (unblocks it), requires the lock on the mutex, and checks the condition again. If the thread condition hasn't been
         satisfied, the thread unlocks the mutex and resumes waiting. This is why we use the std::unique_lock rather than std::lock_guard
-        Te waiting thread must unlock the mutex while it's waiting, and lock it again afterwards.
+        The waiting thread must unlock the mutex while it's waiting and lock it again afterwards.
 */
 
 
