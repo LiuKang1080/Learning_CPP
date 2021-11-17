@@ -54,6 +54,39 @@ Returning An Array From a Function:
     - We should be explicit. If we have [], that means we will return an array, if we have the general *, that means we will
         return a pointer, and it might not be an array. We should always be explicit and leave no chances for misinterpretation.
     - Certain compilers will not allow just [], in those cases we must use the pointer for the return type *
+
+For Each Loop with Arrays in Functions:
+    - Let's say we have a function that takes an array as a parameter, and we use a for each loop in C++ to print all of the
+        elements of the array:
+
+        void func(int A[], int array_size) {
+            for (int i: A) {
+                std::cout << A[i] << "\n";
+            }
+        }
+
+    - We will get an error: 'begin' and 'end' is not definied for the array.
+    - We cannot use for each loops with array because the parameter is taking in a pointer underneath the hood when an array is
+        passed in. We must use a regualr for loop to traverse the array that is passed into the function.
+
+        void func(int A[], int array_size) {
+            for (int i = 0; i < array_size; i++) {
+                std::cout << A[i] << "\n";
+            }
+        }
+
+    - This is using RAW arrays from C in C++. Modern C++ standards now have std::array<> in which that is a true container, which
+        means that iterators can traverse std::array<>s and built in algorithms can act on it.
+    - In order to use C++ arrays instead of C arrays we must first #include the <array> header file
+
+        #include <array>
+
+        void func(std::array<int> A) {
+            // we can now use container, iterators, and algorithms on std::array objects, including range-based for loops
+            for (int i: A) {
+                std::cout << A[i] << "\n";
+            }
+        }
 */
 
 
