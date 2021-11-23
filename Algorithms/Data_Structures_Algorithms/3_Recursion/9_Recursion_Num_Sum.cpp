@@ -34,7 +34,7 @@ Sum of the first natural N numbers using Recursion:
             int total = 0;
 
             for (int i = 0; i <= n; i++) {
-                total += total + i;
+                total += i;
             }
 
             return total;
