@@ -69,8 +69,8 @@ int main() {
     double exponent = 1;
     double num_terms = 10;
 
-    std::cout << "Taylor Series of ";
-    std::cout << "e raised to the " << exponent << " for " << num_terms << " terms is: " << taylor_series(exponent, num_terms);
+    std::cout << "Taylor Series expansion of ";
+    std::cout << "e raised to the " << exponent << " power, for " << num_terms << " terms is: " << taylor_series(exponent, num_terms);
     std::cout << "\n";
 
     return 0;
