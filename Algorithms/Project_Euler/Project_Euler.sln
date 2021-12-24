@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem_20", "Problem_20\Pr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem_29", "Problem_29\Problem_29.vcxproj", "{32F1ED92-8D27-448A-913E-BD93C68110D5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatPlotPlusPlus_Test", "MatPlotPlusPlus_Test\MatPlotPlusPlus_Test.vcxproj", "{386E5D80-A823-496F-8830-14C56FB04399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{32F1ED92-8D27-448A-913E-BD93C68110D5}.Release|x64.Build.0 = Release|x64
 		{32F1ED92-8D27-448A-913E-BD93C68110D5}.Release|x86.ActiveCfg = Release|Win32
 		{32F1ED92-8D27-448A-913E-BD93C68110D5}.Release|x86.Build.0 = Release|Win32
+		{386E5D80-A823-496F-8830-14C56FB04399}.Debug|x64.ActiveCfg = Debug|x64
+		{386E5D80-A823-496F-8830-14C56FB04399}.Debug|x64.Build.0 = Debug|x64
+		{386E5D80-A823-496F-8830-14C56FB04399}.Debug|x86.ActiveCfg = Debug|Win32
+		{386E5D80-A823-496F-8830-14C56FB04399}.Debug|x86.Build.0 = Debug|Win32
+		{386E5D80-A823-496F-8830-14C56FB04399}.Release|x64.ActiveCfg = Release|x64
+		{386E5D80-A823-496F-8830-14C56FB04399}.Release|x64.Build.0 = Release|x64
+		{386E5D80-A823-496F-8830-14C56FB04399}.Release|x86.ActiveCfg = Release|Win32
+		{386E5D80-A823-496F-8830-14C56FB04399}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
