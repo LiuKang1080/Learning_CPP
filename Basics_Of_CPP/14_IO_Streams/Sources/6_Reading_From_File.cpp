@@ -21,12 +21,12 @@ Reading from a text file:
     - Here the ../myfile.txt is the path for the specified file. ../ looks in the parent directory for that file.
     - std::ios::in opens the file in input mode (read only, does not write to the file)
     - | is the pipe operator / bitwise or operator
-    - By defualt files are open in text mode, not binary. If we want to read a file in binary, we need to manually specifiy it.
+    - By default files are open in text mode, not binary. If we want to read a file in binary, we need to manually specifiy it.
     - The ifstream class is used for input stream files only. fstream can be used for reading and writing to and from files.
 
         std::ifstream in_file {"../myfile.txt", std::ios::in};
 
-    - the std::ios::in is optional for ifstream, since it is the defualt.
+    - the std::ios::in is optional for ifstream, since it is the default.
 
         std::ifstream in_file {"../myfile.txt"};
 
@@ -268,7 +268,7 @@ int main() {
         - Pay really close attention to the ACTUAL contents of the file! Notice if the file has an extra line at the end of the
             file. If it has an extra empty line, then the while loop will still execute another iteration. An empty line at the
             end of the file is NOT the actual end of the file. If we have an extra empty line at the end of the file, then the
-            loop will run once more! Pay attention to how the file ends! 
+            loop will run once more! Pay attention to how the file ends!
     */
 
     return 0;

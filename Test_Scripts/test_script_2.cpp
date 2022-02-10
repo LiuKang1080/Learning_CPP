@@ -9,41 +9,52 @@ Pointers Challenge:
 
 
 #include <iostream>
-#include <array>
+#include <string>
+#include <vector>
+#include <fstream>
 
 
-void print_array(const std::array<int, 5> &arr) {
-    // function only accepts an array size of 5.
-    // create iterator starting at the beginning of the array:
-    auto itr = arr.begin();
+class Component {
+private:
+    std::string label;
+    std::string description;
+    std::string category_restriction;
 
-    while (itr != arr.end()) {
-        std::cout << "Memory Address: " << &itr << ", Value at address: " << *itr << "\n";
-        std::cout << "========== \n";
-        itr++;
+public:
+    // Compnent constructor:
+    Component(std::string label, std::string description, std::string category_restriction, std::string file_path) 
+        : label{label}, description{description}, category_restriction{category_restriction} {
+
+        // generate the file with the path and the data
+        std::ofstream out_file {file_path};
+
+        // check to see if the file is properly opened
+        if (!out_file.is_open()) {
+            std::cout << "Error Opening File! \n";
+        } else {
+            std::cout << "File opened! \n";
+        }
+
+        // write the data to the file:
+        /*
+            - The strucutre of the file will have label, description, and then category_restriction in that order with newlines 
+                in between.
+        */
+        out_file << label << "\n";
+        out_file << description << "\n";
+        out_file << category_restriction;
+    
+        // close file when we're done with it
+        out_file.close();
     }
-}
+
+    // destructor
+    ~Component(){}
+};
 
 
 int main() {
-    // Normal example:
-    // create array
-    int arr1[] = {10, 20, 30, 40, 50};
-
-    // create pointer to array
-    int *ptr = {arr1};
-
-    // for loop 
-    for (auto i: arr1) {
-        std::cout << "Memory Address: " << ptr << " Value of element: " << *ptr << '\n';
-        std::cout << "=== \n";
-        ptr++;
-    }
-
-    // Proper example using the STL:
-    // Same challenge except we will use std::array using the print_array function.
-    std::array<int, 5> arr2 = {11, 22, 33, 44, 55};
-    print_array(arr2);
+    Component comp1("Sword", "Very Sharp", "No Restrictions", "component.txt");
 
     return 0;
 }
