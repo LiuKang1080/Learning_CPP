@@ -8,6 +8,12 @@ Learning resources:
     - https://en.cppreference.com/w/
 
 # C++ Algorithms:
+- Code Wars:
+  - Code Wars challenges done in C++, Python, and JavaScript
+  - https://github.com/LiuKang1080/Code_Wars
+  
+  - https://www.codewars.com/dashboard
+
 - Data Structures and Algorithm Analysis in C++: Mark Allen Weiss. 4th Edition
 
 - YouTube | C++ Algorithms | Abdul Bari
@@ -24,9 +30,6 @@ Learning resources:
 
 - Project Euler:
   - https://projecteuler.net/
-
-- Code Wars:
-  - https://www.codewars.com/dashboard
 
 - Hackerrank | ProjectEuler+:
   - https://www.hackerrank.com/contests/projecteuler/challenges
