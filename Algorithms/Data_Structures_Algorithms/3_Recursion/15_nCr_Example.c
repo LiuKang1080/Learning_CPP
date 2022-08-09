@@ -32,7 +32,7 @@ int nCr(int n, int r) {
 
 
 int main() {
-    printf("%i \n", nCr(5,2));
+    printf("%i \n", nCr(5, 2));
     // (5, 1) = 5
     // (5, 2) = 10
     // (5, 3) = 10
