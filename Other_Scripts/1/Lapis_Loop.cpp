@@ -13,8 +13,8 @@ Full Blessings of the Departed Table:
     - 0 / 5: Effect of Jizo Blessing: Uncommon Mercy - Starting cost = 20
     - 0 / 5: Spectral Salve Limit - Starting cost = 20
     - 0 / 5: Spectral Salve Potency - Starting cost = 20
-    - 0 / 20: Ethereal Drop Rate
-    - 0 / 5: Higher Item Level Drop Rate
+    - 0 / 20: Ethereal Drop Rate - Starting cost = 20
+    - 0 / 5: Higher Item Level Drop Rate - Starting cost = 20
 */
 
 
@@ -29,7 +29,7 @@ void total_lapis(int iterations, int cost, int cost_increment=1) {
     */
     int total_lapis = 0;
     
-    for (int i=0; i<=iterations; ++i) {
+    for (int i = 0; i <= iterations; ++i) {
         std::cout << "Iteration#: " << i << ", Lapis cost this iteration: " << cost << "\n";
         total_lapis += cost;
         cost += cost_increment;
@@ -41,15 +41,15 @@ void total_lapis(int iterations, int cost, int cost_increment=1) {
 
 
 int main() {
-    
-    total_lapis(5, 100, 20);    
+
+    total_lapis(20, 20, 20);
 
     return 0;
 }
 
 /*
 Total Lapis required to max out a stat in the Blessings of the Departed Table:
-    - 2,035 + 900 = 2,935: Loot +Value Modifier (increases by +1 from 0 to 54, +100(increasing +20) from 55 to 60)
+    - 1,785 + 400 + 900 = 3,085: Loot +Value Modifier (increases by +1 from 1 to 50, +10 from 51 to 55, +100(increasing +20) from 55 to 60)
     - 420: Effect of Jizo Blessing: Uncommon Strength
     - 420: Effect of Jizo Blessing: Uncommon Defense
     - 420: Effect of Jizo Blessing: Uncommon Mercy
@@ -59,6 +59,6 @@ Total Lapis required to max out a stat in the Blessings of the Departed Table:
     - 420: Higher Item Level Drop Rate
 
     - (420 * 6) = 2,520
-    - 2,520 + 2,935 + 4,620 = 10,075
-    - 10,075 Lapis Lazuli required to max out the entire Blessings of the Departed table.
+    - 2,520 + 3,085 + 4,620 = 10,225
+    - 10,225 Lapis Lazuli required to max out the entire Blessings of the Departed table.
 */
